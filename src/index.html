@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmoteka</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body class="white">
+    <header class="header">
+      <section class="container header-flexbox">
+        <div class="theme-control">
+          <label class="theme-control__label" for="theme-control"></label>
+          <input
+            name="theme-control"
+            id="theme-control"
+            class="theme-control__input"
+            type="checkbox"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="header__nav">
+          <div class="logo">
+            <!-- <svg class="logo__svg" xmlns="http://www.w3.org/2000/svg">
+              <use class="logo_use" href=""></use>
+            </svg> -->
+            <a class="logo__title" href="index.html">Filmoteka</a>
+          </div>
+          <nav class="nav">
+            <div class="nav__item">
+              <a class="nav__link" href="">HOME</a>
+              <span class="nav__line"></span>
+            </div>
+            <div class="nav__item">
+              <a class="nav__link" href="">MY LIBRARY</a>
+              <span class="nav__line"></span>
+            </div>
+          </nav>
+        </div>
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search images..."
+          />
+          <button type="submit">Search</button>
+        </form>
+        <!-- <svg class="search-bar__icon" xmlns="http://www.w3.org/2000/svg">
+          <use class="logo_use" href="..."></use>
+        </svg> -->
+      </section>
+    </header>
+    <main class="main">
+      <section class="container">
+        <div class="gallery" id="gallery">
+          <!-- Aquí se muestran las películas -->
+          <!-- Estilos para cada tarjeta -->
+          <!-- <div class="gallery__card">
+            <img
+              class="gallery__img"
+              src="${baseImageUrl}w300${result.poster_path}"
+              data-id="${result.id}"
+              alt=""
+              loading="lazy"
+            />
+            <div class="gallery__info">
+              <h2 class="gallery__title">${result.original_title}</h2>
+              <p class="gallery__text">${result.release_date}</p>
+            </div>
+          </div> -->
+        </div>
+        <ul class="page-selection"></ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">© 2023 | All Rights Reserved | Developed with</p>
+      <svg class="footer__svg" xmlns="http://www.w3.org/2000/svg">
+        <use
+          class="footer__use"
+          href="./assets/images/icons.svg#favorite"
+        ></use>
+      </svg>
+      <p class="footer__text">by GoIT Students | team:"Grupo sin nombre"</p>
+    </footer>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
