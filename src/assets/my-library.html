@@ -28,28 +28,23 @@
             <!-- <svg class="logo__svg" xmlns="http://www.w3.org/2000/svg">
               <use class="logo_use" href=""></use>
             </svg> -->
-            <a class="logo__title" href="index.html">Filmoteka</a>
+            <a class="logo__title" href="../index.html">Filmoteka</a>
           </div>
           <nav class="nav">
             <div class="nav__item">
-              <a class="nav__link" href="index.html">HOME</a>
+              <a class="nav__link" href="../index.html">HOME</a>
               <span class="nav__line"></span>
             </div>
             <div class="nav__item">
-              <a class="nav__link" href="assets/my-library.html">MY LIBRARY</a>
+              <a class="nav__link" href="my-library.html">MY LIBRARY</a>
               <span class="nav__line"></span>
             </div>
           </nav>
         </div>
-        <form class="search-form" id="search-form">
-          <input
-            type="text"
-            name="searchQuery"
-            autocomplete="off"
-            placeholder="Search images..."
-          />
-          <button type="submit">Search</button>
-        </form>
+        <div class="buttons">
+          <button class="buttons__button" type="button">WATCHED</button>
+          <button class="buttons__button" type="button">QUEUE</button>
+        </div>
         <!-- <svg class="search-bar__icon" xmlns="http://www.w3.org/2000/svg">
           <use class="logo_use" href="..."></use>
         </svg> -->
@@ -57,25 +52,9 @@
     </header>
     <main class="main">
       <section class="container">
-        <div class="gallery" id="gallery">
-          <!-- Aquí se muestran las películas -->
-          <!-- Estilos para cada tarjeta -->
-          <!-- <div class="gallery__card">
-            <img
-              class="gallery__img"
-              src="${baseImageUrl}w300${result.poster_path}"
-              data-id="${result.id}"
-              alt=""
-              loading="lazy"
-            />
-            <div class="gallery__info">
-              <h2 class="gallery__title">${result.original_title}</h2>
-              <p class="gallery__text">${result.release_date}</p>
-            </div>
-          </div> -->
-        </div>
         <ul class="page-selection"></ul>
       </section>
+      <section class="backdrop" data-attribute="modal"></section>
     </main>
     <footer class="footer">
       <p class="footer__text">© 2023 | All Rights Reserved | Developed with</p>
