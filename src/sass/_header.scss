@@ -21,6 +21,8 @@ header {
                     display: flex;
                     .film-icon{
                         fill: transparent;
+                        stroke: #818181;
+                        z-index: 10;
                     }
                 }
             .page-name{
@@ -84,6 +86,8 @@ header {
                         cursor: pointer;
                         svg{
                             fill: transparent;
+                            stroke: #818181;
+                            z-index: 10;
                         }
                     }
                 }
