@@ -1,0 +1,103 @@
+header {
+    width: 100%;
+    background-color: #000;
+    .header-container{
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, .56), rgba(0, 0, 0, .56)), url(../assets/images/header-pic-1024.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        height: 230px;
+        padding: 30px 70px 97px;
+        .container-divisions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 27px;
+            .division-left {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                .logo-icon{
+                    display: flex;
+                    .film-icon{
+                        fill: transparent;
+                    }
+                }
+            .page-name{
+                h1 {
+                    font-size: 30px;
+                    line-height: 35.16px;
+                    color: white;
+                }
+            }
+            }
+            .division-right {
+                margin: 0;
+                .menu-home {
+                    display: flex;
+                    justify-content: flex-end;
+                    &__item {
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 14.06px;
+                        &:not(:last-child) {
+                            margin-right: 39px;
+                        }
+                        &:hover {
+                            border-bottom: solid 2px orangered;
+                        }
+                    }
+                    &__btn {
+                        padding: 1px 0;
+                        text-transform: uppercase;
+                        border: none;
+                        background: transparent;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .division-center {
+            form {
+                max-width: 366px;
+                margin-right: auto;
+                margin-left: auto;
+                border-bottom: solid 1px white;
+    
+                .search-input{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    input {
+                        width: 100%;
+                        border: none;
+                        background: transparent;
+                        color: white;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    .scoop-icon-btn{
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        svg{
+                            fill: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.is-active{
+    border-bottom: 3px solid #ff6b08;
+}
+
+.container{
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
