@@ -24,7 +24,6 @@ header {
                     display: flex;
                     .film-icon {
                         fill: transparent;
-                        z-index: 10;
                         cursor: pointer;
                         stroke: orangered;
                         text-shadow: 0 0 15px #ff001b;                     
@@ -152,7 +151,6 @@ header {
                 svg {
                     fill: transparent;
                     stroke: #818181;
-                    z-index: 10;
                 }
                 &:focus, &:hover {
                     border-bottom: 1px solid #ff001b;
