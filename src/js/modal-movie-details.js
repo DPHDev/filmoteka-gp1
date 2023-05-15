@@ -33,7 +33,7 @@ export async function detailsMovieValues(id_movie) {
     modalQueueBtn.value = id;    
     // film values
     const markup = `
-        <li>${vote_average}/${vote_count}</li>
+        <li>${vote_average.toFixed(1)}/${vote_count}</li>
         <li>${popularity}</li>
         <li>${original_title}</li>
         <li>${desGenres}</li>`
