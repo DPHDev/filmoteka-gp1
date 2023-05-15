@@ -29,6 +29,8 @@ export async function detailsMovieValues(id_movie) {
     };
     // title movie
     modalTitle.textContent = title;
+    modalWatchedBtn.value = id;
+    modalQueueBtn.value = id;    
     // film values
     const markup = `
         <li>${vote_average}/${vote_count}</li>
