@@ -24,5 +24,7 @@ export const varDOM = {
     clearQueue: document.querySelector('.clearQueue'),
     library: document.querySelector('.library'),
     home: document.querySelector('.menu-home__btn'),
-    error: document.querySelector('.error')
+    error: document.querySelector('.error'),
+
+    scrollTopBtn: document.querySelector('.back-to-top')
 };

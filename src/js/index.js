@@ -2,10 +2,11 @@ import {getAPI, getMovie} from "./request-api";
 import { varDOM } from "./var-selector-dom";
 import { renderPost, printCard } from "./renderPost";
 import { detailsMovieValues } from "./modal-movie-details";
-import { setQueue, setWatched, getQueue, getWatched, getGenre, deletechildrens} from "./localStorage";
+import { setQueue, setWatched, getQueue, getWatched, getGenre, deletechildrens } from "./localStorage";
 import { theme } from "./theme-dark";
+import { scrollTop } from "./scroll-top";
 
-const { movieName, onSearchBtn, modalContainer, modalP, modalCloseBtn, modalQueueBtn, modalWatchedBtn, buttonWatchet, buttonQueue, buttons, clearWatched, clearQueue, library, filmsRender, home, error } = varDOM;
+const { movieName, onSearchBtn, modalContainer, modalCloseBtn, modalQueueBtn, modalWatchedBtn, buttonWatchet, buttonQueue, buttons, clearWatched, clearQueue, library, filmsRender, home, error, scrollTopBtn } = varDOM;
 //ocultar Elementos Deimer Gutierrez...
 buttons.style.display = "none";
 clearWatched.style.display = "none";
@@ -180,4 +181,11 @@ clearQueue.addEventListener('click', (e)=>{
     localStorage.removeItem('Queue');
     deletechildrens(filmsRender);
     clearQueue.style.display = "none";
+});
+
+// Scroll button to top
+window.addEventListener('scroll', scrollTop);
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
