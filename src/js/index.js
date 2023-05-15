@@ -2,7 +2,7 @@ import {getAPI} from "./request-api";
 import { varDOM } from "./var-selector-dom";
 import { renderPost } from "./renderPost";
 import { detailsMovieValues } from "./modal-movie-details";
-
+import { theme } from "./theme-dark";
 const { movieName, onSearchBtn, modalContainer, modalP, modalCloseBtn } = varDOM;
 
 const page = 1;
