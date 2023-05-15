@@ -30,7 +30,7 @@
               <button class="menu-home__btn" href="/src/index.html">Home</button>
             </li>
             <li class="menu-home__item">
-              <button class="menu-home__btn">My library</button>
+              <button class="menu-home__btn library">My library</button>
             </li>
           </ul>
         </nav>
@@ -38,16 +38,25 @@
       <div class="division-center">
         <form>
             <label class="search-input">
-              <input name="search-query" autocomplete="off" id="text-search" type="text" placeholder="Movie search..." autofocus>
+              <input name="search-query" autocomplete="off" id="text-search" type="text" placeholder="Movie search..." autofocus>              
               <button type="button" class="scoop-icon-btn" id="btn-search">
                 <svg class="scop-icon" width="12" height="12" fill="none">
                   <use href="./assets/images/icons.svg#icon-lup"></use>
                 </svg>
               </button>
-            </label>
+            </label>            
         </form>
+        <div>
+          <spam class="error"></spam>
+        </div>       
       </div>
     </div>
+    <div class="buttons">
+      <button class="button__watchet">WATCHET</button>
+      <button class="button__queue">QUEUE</button>
+    </div>
+    <button class="clearWatched">CLEAR WATCHET LIST</button>
+    <button class="clearQueue">CLEAR QUEUE LIST</button>
   </header>
   <include src="./partials/modal.html"></include>
   <section class="films">
