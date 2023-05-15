@@ -6,7 +6,6 @@ import { setQueue, setWatched, getQueue, getWatched, getGenre, deletechildrens} 
 import { theme } from "./theme-dark";
 
 const { movieName, onSearchBtn, modalContainer, modalP, modalCloseBtn, modalQueueBtn, modalWatchedBtn, buttonWatchet, buttonQueue, buttons, clearWatched, clearQueue, library, filmsRender, home, error } = varDOM;
-const { movieName, onSearchBtn, modalContainer, modalP, modalCloseBtn } = varDOM;
 //ocultar Elementos Deimer Gutierrez...
 buttons.style.display = "none";
 clearWatched.style.display = "none";
