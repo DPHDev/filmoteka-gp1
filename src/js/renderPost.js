@@ -10,7 +10,7 @@ export async function renderPost(posts, page, listGenres) {
         const promises = results.map(async ({ poster_path, id, title, genre_ids, release_date, vote_average }) => {
             // Genres list charge
             const genres = await varDOM.genresList(genre_ids, listGenres).map((elemento) => {
-            return ' '+elemento;
+                return ' ' + elemento;
             });
             // Delimitation of the list of genres and date
             const genresDel = genres.length > 2 ? `${genres.slice(0, 2)}, others.` : genres;
@@ -33,7 +33,7 @@ export async function renderPost(posts, page, listGenres) {
                             | ${date_year}
                         </p>
                         <p class="info-item">
-                            ${vote_average}
+                            ${vote_average.toFixed(1)}
                         </p>
                     </div>
 
