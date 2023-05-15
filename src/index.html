@@ -5,27 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./sass/index.scss" />
+  
   <title>Filmoteka</title>
 </head>
 
 <body>
   <header>
+    <include src="./partials/switch.html"></include>
     <div class="header-container container">
       <div class="container-divisions">
         <div class="division-left">
           <div class="logo-icon">
-            <svg class="film-icon" width="24" height="24">
+            <svg class="film-icon" width="24" height="24" href="/src/index.html">
               <use href="./assets/images/icons.svg#icon-film"></use>
             </svg>
           </div>
           <div class="page-name">
-            <h1>Filmoteka</h1>
+            <h1 href="/src/index.html" >Filmoteka</h1>
           </div>
         </div>
         <nav class="division-right">
           <ul class="menu-home">
             <li class="menu-home__item is-active">
-              <button class="menu-home__btn">Home</button>
+              <button class="menu-home__btn" href="/src/index.html">Home</button>
             </li>
             <li class="menu-home__item">
               <button class="menu-home__btn">My library</button>
