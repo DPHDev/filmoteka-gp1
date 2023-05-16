@@ -15,5 +15,14 @@ export const varDOM = {
     modalInfoValues: document.querySelector('.film-info__values'),
     modalDescMovie: document.querySelector('.description-text'),
     modalWatchedBtn: document.getElementById('watch-button'),
-    modalQueueBtn: document.getElementById('queue-button')
+    modalQueueBtn: document.getElementById('queue-button'),
+
+    buttonWatchet: document.querySelector('.button__watchet'),
+    buttonQueue: document.querySelector('.button__queue'),
+    buttons: document.querySelector('.buttons'),
+    clearWatched: document.querySelector('.clearWatched'),
+    clearQueue: document.querySelector('.clearQueue'),
+    library: document.querySelector('.library'),
+    home: document.querySelector('.menu-home__btn'),
+    error: document.querySelector('.error')
 };

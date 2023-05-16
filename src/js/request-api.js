@@ -1,4 +1,5 @@
 import axios from "axios";
+const apikey = '1c40c07b431bd44c3eec1b5bff019241';
 
 
 export const getAPI = {
@@ -76,4 +77,14 @@ export const getAPI = {
         });
     }
 
+}
+
+// Extarer una pelicula de la api Deimer Gutierrez....
+
+
+export async function getMovie(query){
+    let url = `https://api.themoviedb.org/3/movie/${query}?api_key=${apikey}`;
+    const response = await fetch(url);
+    const data =  await response.json();
+    return data;
 }

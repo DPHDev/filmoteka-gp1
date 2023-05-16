@@ -1,5 +1,6 @@
 // import genresList from './genres';
 import { varDOM } from "./var-selector-dom";
+import { getGenre } from "./localStorage";
 
 let count = 0;
 
@@ -39,4 +40,37 @@ export async function renderPost(posts, page, listGenres) {
     catch {
         return
     }
-};
+}
+
+export function printCard(results){
+    let insertCard = "";
+
+    const baseImageUrl = 'https://image.tmdb.org/t/p/'
+    let genres = getGenre(results.genres);
+    let year = results.release_date.split('-');
+   
+    insertCard =`
+                    <figure class="movie-card" id="movie-detail">
+                        <a class="poster-large" data-id="" href="#">
+                            <img class='gallery__image' src="${baseImageUrl}w300${results.poster_path}" alt="${results.tittle}" loading="lazy" />
+                        </a>
+                        <figcaption class="info">
+                            <h3 class="card-movie-title">${results.original_title}</h3>
+                            <div class="info-items">
+                                <p class="info-item">
+                                    ${genres}
+                                </p>
+                                <p class="info-item">
+                                    ${year[0]}
+                                </p>
+                                <p class="info-item">
+                                    ${results.vote_average}
+                                </p>
+                            </div>
+
+                        </figcaption>
+                    </figure>`
+    
+
+    return insertCard;
+}
