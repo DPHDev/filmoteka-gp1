@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sass/index.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@100;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>My library</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-container container">
+        <section>
+          <div class="container-divisions">
+            <div class="division-left">
+              <div class="logo-icon">
+                <svg class="film-icon" width="24" height="24">
+                  <use href="../assets/images/icons.svg#icon-film"></use>
+                </svg>
+              </div>
+              <div class="page-name">
+                <h1>Filmoteka</h1>
+              </div>
+            </div>
+            <nav class="division-right">
+              <ul class="menu-home">
+                <li class="menu-home__item is-active">
+                  <a class="menu-home__link" href="../index.html">Home</a>
+                </li>
+                <li class="menu-home__item">
+                  <a class="menu-home__link" href="my-library.html"
+                    >My library</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="buttons">
+            <button class="buttons__button" type="button">WATCHED</button>
+            <button class="buttons__button" type="button">QUEUE</button>
+          </div>
+        </section>
+      </div>
+    </header>
+    <main></main>
+    <footer>
+      <section class="footer">
+        <p class="footer__text">
+          © 2023 | All Rights Reserved | Developed with
+        </p>
+        <svg
+          class="footer__svg"
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="14"
+        >
+          <use
+            class="footer__use"
+            href="../assets/images/icons.svg#favorite"
+          ></use>
+        </svg>
+        <p class="footer__text">
+          by
+          <span class="footer__span" data-modal-open
+            >GoIT Students | team: "Dev Vinci Code"</span
+          >
+        </p>
+      </section>
+
+      <!-- Footer Modal -->
+      <!-- Here you will see the code for the modal but it's not finished yet -->
+    </footer>
+    <script type="module" src="../js/index.js"></script>
+  </body>
+</html>

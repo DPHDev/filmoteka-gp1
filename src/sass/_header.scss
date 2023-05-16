@@ -56,7 +56,7 @@ header {
                 .menu-home {
                     display: flex;
                     justify-content: flex-end;
-
+                  
                     &__item {
                         font-weight: 500;
                         font-size: 12px;
@@ -97,13 +97,13 @@ header {
                         }
                     }
 
-                    &__btn {
+                    &__link {
                         padding: 1px 0;
                         text-transform: uppercase;
                         border: none;
                         background: transparent;
                         color: white;
-                        cursor: pointer;
+                        text-decoration: none;
                     }
 
                 }
