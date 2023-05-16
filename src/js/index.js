@@ -106,29 +106,33 @@ modalWatchedBtn.addEventListener('click', (e)=>{
     setWatched(modalWatchedBtn.value);
 });
 
-
-buttonWatchet.addEventListener('click', (e)=>{
-    e.preventDefault();
-    let ids = getWatched();
-
-});
-
 library.addEventListener('click', (e)=>{
     e.preventDefault();
-    let ids = getWatched();    
+    let ids = getWatched(); 
+    console.log(ids.length);
+    
     buttons.style.display = "block";
     if(ids === null){
         filmsRender.innerHTML = `Oops! Your "watched" library is empty!`;
     }else{
         clearWatched.style.display = "block";
         deletechildrens(filmsRender);
-        for (const id of ids) {
-            getMovie(id).then(data=>{
+        if(ids.length === undefined){
+            getMovie(ids).then(data=>{
                 filmsRender.insertAdjacentHTML('beforeend',printCard(data));
             }).catch(error=>{
                 console.log(error);
             });
-        }       
+        }else{
+            for (const id of ids) {
+                getMovie(id).then(data=>{
+                    filmsRender.insertAdjacentHTML('beforeend',printCard(data));
+                }).catch(error=>{
+                    console.log(error);
+                });
+            } 
+        }    
+              
     }
 });
 
@@ -141,13 +145,21 @@ buttonWatchet.addEventListener('click', (e)=>{
     }else{
         clearWatched.style.display = "block";
         deletechildrens(filmsRender);
-        for (const id of ids) {
-            getMovie(id).then(data=>{
+        if(ids.length === undefined){
+            getMovie(ids).then(data=>{
                 filmsRender.insertAdjacentHTML('beforeend',printCard(data));
             }).catch(error=>{
                 console.log(error);
             });
-        }       
+        }else{
+            for (const id of ids) {
+                getMovie(id).then(data=>{
+                    filmsRender.insertAdjacentHTML('beforeend',printCard(data));
+                }).catch(error=>{
+                    console.log(error);
+                });
+            } 
+        }              
     }
 });
 
@@ -160,13 +172,21 @@ buttonQueue.addEventListener('click', (e)=>{
     }else{
         clearQueue.style.display = "block";
         deletechildrens(filmsRender);
-        for (const id of ids) {
-            getMovie(id).then(data=>{
+        if(ids.length === undefined){
+            getMovie(ids).then(data=>{
                 filmsRender.insertAdjacentHTML('beforeend',printCard(data));
             }).catch(error=>{
                 console.log(error);
             });
-        }       
+        }else{
+            for (const id of ids) {
+                getMovie(id).then(data=>{
+                    filmsRender.insertAdjacentHTML('beforeend',printCard(data));
+                }).catch(error=>{
+                    console.log(error);
+                });
+            }
+        }               
     }
 });
 
