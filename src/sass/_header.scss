@@ -34,28 +34,27 @@ header {
             }
             }
             .division-right {
-                margin: 0;
+
                 .menu-home {
                     display: flex;
                     justify-content: flex-end;
+                    
                     &__item {
-                        font-weight: 500;
-                        font-size: 12px;
-                        line-height: 14.06px;
                         &:not(:last-child) {
                             margin-right: 39px;
                         }
                         &:hover {
-                            border-bottom: solid 2px orangered;
+                            border-bottom: solid 3px orangered;
                         }
                     }
-                    &__btn {
-                        padding: 1px 0;
-                        text-transform: uppercase;
-                        border: none;
-                        background: transparent;
+                    &__link {
+                        font-family: 'Roboto', sans-serif;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 14px;
                         color: white;
-                        cursor: pointer;
+                        text-decoration: none;
                     }
                 }
             }

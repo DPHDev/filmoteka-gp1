@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./sass/index.scss" />
+  <link rel="stylesheet" href="sass/index.scss" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
   <title>Filmoteka</title>
 </head>
 
@@ -25,10 +28,10 @@
         <nav class="division-right">
           <ul class="menu-home">
             <li class="menu-home__item is-active">
-              <button class="menu-home__btn">Home</button>
+              <a class="menu-home__link" href="index.html">Home</a>
             </li>
             <li class="menu-home__item">
-              <button class="menu-home__btn">My library</button>
+              <a class="menu-home__link" href="partials/my-library.html">My library</a>
             </li>
           </ul>
         </nav>
@@ -56,8 +59,34 @@
     <div id="pg-controler" class="pg-controler"></div>
   </section>
   <div class="back-to-top"></div>
-  <footer></footer>
-  <script type="module" src="./js/index.js"></script>
+  <footer>
+    <section class="footer">
+      <p class="footer__text">© 2023 | All Rights Reserved | Developed with</p>
+      <svg
+        class="footer__svg"
+        xmlns="http://www.w3.org/2000/svg"
+        width="15"
+        height="14"
+      >
+        <use
+          class="footer__use"
+          href="./assets/images/icons.svg#favorite"
+        ></use>
+      </svg>
+      <p class="footer__text">
+        by <span class="footer__span" data-modal-open>GoIT Students | team: "Dev Vinci
+        Code"</span>
+      </p>
+    </section>
+  
+    <!-- Footer Modal -->
+    <section class="modal-background is-hidden" data-footer-modal>
+      <div class="footer-modal">
+        <button class="footer-modal__close" data-modal-close>X</button>
+      </div>
+    </section>
+  </footer>
+  <script type="module" src="js/index.js"></script>
 </body>
 
 </html>

@@ -74,3 +74,19 @@ movieName.addEventListener('keydown', (event) => {
 });
 
 
+// MEMBERS MODAL/FOOTER MODAL
+document.addEventListener('DOMContentLoaded', () => {
+    const modalRef = {
+      openFooterModal: document.querySelector('[data-modal-open]'),
+      closeFooterModal: document.querySelector('[data-modal-close]'),
+      footerModal: document.querySelector('[data-footer-modal]'),
+    };
+  
+    function toggleModal() {
+      modalRef.footerModal.classList.toggle('is-hidden');
+    }
+  
+    modalRef.openFooterModal.addEventListener('click', toggleModal);
+    modalRef.closeFooterModal.addEventListener('click', toggleModal);
+  });
+  
