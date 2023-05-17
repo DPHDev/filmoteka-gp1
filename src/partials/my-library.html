@@ -49,15 +49,22 @@
         </div>
         <div class="division-center">
           <div class="buttons">
-            <button class="button__watchet">WATCHET</button>
-            <button class="button__queue">QUEUE</button>
+            <button id="buttonWatchet" class="button__watchet">WATCHET</button>
+            <button id="buttonQueue" class="button__queue">QUEUE</button>
           </div>
-          <button class="clearWatched">CLEAR WATCHET LIST</button>
-          <button class="clearQueue">CLEAR QUEUE LIST</button>
+          <button id="clearWatched" class="clearWatched">CLEAR WATCHET LIST</button>
+          <button id="clearQueue" class="clearQueue">CLEAR QUEUE LIST</button>
         </div>
       </div>
     </header>
-    <main></main>
+    <main>
+      <section class="films"></section>
+        <div class="films__container">
+          <h2 hidden>Popular films</h2>
+          <div id="films" class="films_gallery"></div>
+        </div>
+      </section>
+    </main>
     <footer>
       <section class="footer">
         <p class="footer__text">
@@ -95,6 +102,6 @@
     </div>
   </div>
   </footer>
-    <script type="module" src="../js/index.js"></script>
+    <script type="module" src="../js/library.js"></script>
   </body>
 </html>
