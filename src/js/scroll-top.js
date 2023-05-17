@@ -16,3 +16,4 @@ export let scrollTop = () => {
     varDOM.scrollTopBtn.style.display = 'none';
   }
 };
+

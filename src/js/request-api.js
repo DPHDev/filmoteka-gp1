@@ -1,5 +1,5 @@
 import axios from "axios";
-const apikey = '1c40c07b431bd44c3eec1b5bff019241';
+
 
 
 export const getAPI = {
@@ -40,8 +40,8 @@ export const getAPI = {
             };
         });
     },
-    trendMovies: function () {
-    return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${this.KEY_API}&language=en-US`)
+    trendMovies: function (page) {
+    return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${this.KEY_API}&language=en-US&page=${page}`)
         .then((response) => {
             return response;
         })

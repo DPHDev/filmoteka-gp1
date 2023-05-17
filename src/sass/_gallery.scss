@@ -44,12 +44,14 @@
 
 .info-items {
     display: flex;
+    align-items: center;
     font-size: 12px;
     text-align: center;
     gap: 5px;
     padding: 7px;
     font-weight: bold;
     color: #FF6B08;
+
 }
 .back-to-top {
     display: none;
@@ -66,6 +68,17 @@
         transition: opacity .25s cubic-bezier(.4, 0, .2, 1);
     }
 }
+.info-items :nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: #ff6b01;
+    border-radius: 5px;
+    width: 36px;
+    height: 16px;
+}
+
 
     
 

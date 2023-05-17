@@ -1,0 +1,34 @@
+
+.pg-controler{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-back-page, .btn-adv-page {
+        border-radius: 5px;
+        background: #f7f7f7;
+        width: 40px;
+        height: 40px;
+        border: none;
+        &:hover{
+            background: #ff6b01;
+            color: white;
+        }
+    }
+    .pages-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+            border-radius: 5px;
+            background: white;
+            width: 40px;
+            height: 40px;
+            font-size: 12px;
+            border: none;
+        }
+        button:hover{
+            background: #ff6b01;
+            color: white;
+        }
+    }
+}
