@@ -2,6 +2,8 @@ import { getAPI, getMovie } from './request-api';
 import { varDOM } from './var-selector-dom';
 import { renderPost, printCard } from './renderPost';
 import { detailsMovieValues } from './modal-movie-details';
+import { paginationButtons, renderPerPagination } from './pagination';
+import { scrollTop } from './scroll-top';
 import {
   setQueue,
   setWatched,
@@ -30,12 +32,11 @@ const {
   home,
   error,
   openModalFooter,
-    closeModalFooter,
-  modalFooter
+  closeModalFooter,
+  modalFooter,
+  scrollTopBtn
 } = varDOM;
-
-//ocultar Elementos Deimer Gutierrez...
-
+  
 const page = 1;
 let movListGen;
 // Async funtion expecting all movie cards to be displayed
@@ -47,23 +48,81 @@ async function renderPostAsync(data, page, movListGen) {
 }
 
 // Charge render movie trending
-async function renderMoviesInit() {
-  const postTrending = await getAPI.trendMovies();
-  const movieListGenres = await getAPI.genres();
-  movListGen = movieListGenres.slice();
-  await renderPostAsync(postTrending, page, movieListGenres);
+async function renderMoviesInit(page) {
+    const postTrending = await getAPI.trendMovies(page);
+    const movieListGenres = await getAPI.genres();
+    movListGen = movieListGenres.slice();    
+    await renderPostAsync(postTrending, page, movieListGenres);
+    // Rendering pagination
+    paginationButtons();
+    selecPage = document.querySelectorAll('#num-page-btn');
+    selecPage.forEach(page => {
+        page.addEventListener('click', async () => {
+            const postTrendingPage = await getAPI.trendMovies(page.textContent);
+            await renderPostAsync(postTrendingPage, page.textContent, movieListGenres);
+            
+            const detail_movie = document.querySelectorAll('.movie-card');
 
-  // Element selector by class .movie-card
-  const detail_movie = document.querySelectorAll('.movie-card');
+            //Event click open movie details by class .movie-card
+            detail_movie.forEach(movie => {
+                const id_movie = movie.querySelector('a');
+                movie.addEventListener('click', () => {
+                    modalContainer.style.display = "block";         
+                    detailsMovieValues(id_movie.dataset.id);
+                });
+            });
+        })
+    });
+    //Trending pagination advance button
+    advancePage = document.getElementById('pg-advance-btn')
+    advancePage.addEventListener('click', async () => {
+        pageAdv = pageNow === total_pgs ? pageNow : pageNow + 1;
+        const postTrendingPageAdv = await getAPI.trendMovies(pageAdv);
+        await renderPostAsync(postTrendingPageAdv, pageAdv, movieListGenres);
 
-  //Event click open movie details by class .movie-card
-  detail_movie.forEach(movie => {
-    const id_movie = movie.querySelector('a');
-    movie.addEventListener('click', () => {
-      modalContainer.style.display = 'block';
-      // modalP.textContent = id_movie.dataset.id;
+        const detail_movie = document.querySelectorAll('.movie-card');
 
-      detailsMovieValues(id_movie.dataset.id);
+        //Event click open movie details by class .movie-card
+        detail_movie.forEach(movie => {
+            const id_movie = movie.querySelector('a');
+            movie.addEventListener('click', () => {
+                modalContainer.style.display = "block";         
+                detailsMovieValues(id_movie.dataset.id);
+            });
+        });
+    });
+    //Trending pagination back button
+    backPage = document.getElementById('pg-back-btn')
+    backPage.addEventListener('click', async () => {
+        pageBack = pageNow === 1 ? pageNow : pageNow - 1;
+        const postTrendingPageBack = await getAPI.trendMovies(pageBack);
+        await renderPostAsync(postTrendingPageBack, pageBack, movieListGenres);
+
+        const detail_movie = document.querySelectorAll('.movie-card');
+
+        //Event click open movie details by class .movie-card
+        detail_movie.forEach(movie => {
+            const id_movie = movie.querySelector('a');
+            movie.addEventListener('click', () => {
+                modalContainer.style.display = "block";         
+                detailsMovieValues(id_movie.dataset.id);
+            });
+        });
+    });
+    // Element selector by class .movie-card
+    const detail_movie = document.querySelectorAll('.movie-card');
+
+    //Event click open movie details by class .movie-card
+    detail_movie.forEach(movie => {
+        const id_movie = movie.querySelector('a');
+        movie.addEventListener('click', () => {
+            modalContainer.style.display = "block";         
+            detailsMovieValues(id_movie.dataset.id);
+        });
+    });
+    // Event click close button modal window
+    modalCloseBtn.addEventListener('click', () => {
+        modalContainer.style.display = "none";
     });
   });
   // Event click close button modal window
@@ -72,14 +131,45 @@ async function renderMoviesInit() {
   });
 }
 
-renderMoviesInit();
+renderMoviesInit(page);
 
 onSearchBtn.addEventListener('click', async () => {
-  if (movieName.value != '') {
-    const posts = await getAPI.movies(movieName.value.trim(), page);
-    console.log(posts.data.total_results);
-    if (posts.data.total_results >= 1) {
-      await renderPostAsync(posts, page, movListGen);
+    if (movieName.value != '') {
+        const posts = await getAPI.movies(movieName.value.trim(), page);
+        console.log(posts.data.total_results);
+        if(posts.data.total_results >= 1){
+            await renderPostAsync(posts, page, movListGen);
+            // Rendering pagination buttons
+            paginationButtons();
+            // Rendering photocards per paginations numbers buttons
+            renderPerPagination();
+            // Element selector by class .movie-card
+            const detail_movie = document.querySelectorAll('.movie-card');
+    
+            //Event click open movie details by class .movie-card
+            detail_movie.forEach(movie => {
+                const id_movie = movie.querySelector('a');
+                movie.addEventListener('click', () => {
+                    modalContainer.style.display = "block";
+                    detailsMovieValues(id_movie.dataset.id);
+                });
+            });
+            
+        }else{
+            error.innerHTML = "No se encontraron Resultados";
+        }
+       
+     
+    } else {
+        return window.alert('Please write something!');
+    }
+});
+movieName.addEventListener('keydown', (event) => {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        onSearchBtn.click();
+    }
+});
 
       // Element selector by class .movie-card
       const detail_movie = document.querySelectorAll('.movie-card');
@@ -120,24 +210,17 @@ modalWatchedBtn.addEventListener('click', e => {
 });
 
 // MEMBERS MODAL/FOOTER MODAL
-// document.addEventListener('DOMContentLoaded', () => {
-//   const modalRef = {
-//     openFooterModal: document.querySelector('[data-modal-open]'),
-//     closeFooterModal: document.querySelector('[data-modal-close]'),
-//     footerModal: document.querySelector('[data-footer-modal]')
-//   };
-
-//   function toggleModal() {
-//     modalRef.footerModal.classList.toggle('is-hidden');
-//   }
-
-//   modalRef.openFooterModal.addEventListener('click', toggleModal);
-//   modalRef.closeFooterModal.addEventListener('click', toggleModal);
-// });
 
 openModalFooter.addEventListener('click', () => {
     modalFooter.style.display = 'block';
 });
 closeModalFooter.addEventListener('click', () => {
   modalFooter.style.display = 'none';
+});
+
+// Scroll button to top
+window.addEventListener('scroll', scrollTop);
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });

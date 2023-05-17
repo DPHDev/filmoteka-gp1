@@ -46,10 +46,36 @@
 
 .info-items {
     display: flex;
+    align-items: center;
     font-size: 12px;
     text-align: center;
     gap: 5px;
     padding: 7px;
     font-weight: bold;
     color: #FF6B08;
+}
+.back-to-top {
+    display: none;
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    cursor: pointer;
+    svg {
+        opacity: .7;
+        fill: #ff6b01;
+    }
+    &:hover svg {
+        opacity: 1;
+        transition: opacity .25s cubic-bezier(.4, 0, .2, 1);
+    }
+}
+.info-items :nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: #ff6b01;
+    border-radius: 5px;
+    width: 36px;
+    height: 16px;
 }
