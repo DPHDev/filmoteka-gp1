@@ -1,0 +1,15 @@
+$colors: (
+    brand: rgb(255, 108, 10),
+    background: rgba(255, 255, 255, 1),
+    background2: rgb(247, 247, 247),
+    texts: rgb(0, 0, 0),
+    texts2:rgb(140, 140, 140)
+);
+
+$primary-font: "Roboto", sans-serif;
+$secondary-font: "Raleway", sans-serif;
+$borders: 4px;
+
+@function getColor($key) {
+    @return map-get($colors, $key);
+  }

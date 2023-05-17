@@ -1,0 +1,28 @@
+// This mixin will help you add styles to the texts. They are arranged in this way: font-weight, font-size, line-height, letter-spacing
+@mixin text($weight: 400, $size:14px, $line-height: 16px, $letter-spacing: 0.03em) {
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+// This mixin is for the use of Flexbox. This is arranged in this way: Flex-direction, justify-content, align-items.
+@mixin flex-container($flex-direction:row, $justify-content:flex-start, $aling-items:stretch) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $aling-items;
+}
+
+// This mixin is used to center an element. Normally you would just add the "@include margin-auto" and the element should center automatically. 
+@mixin margin-auto($left: auto, $right: auto) {
+    margin-right: $right;
+    margin-left: $left; 
+}
+
+// This mixin will help you position an elementet. This is arranged in this way: Position (You give the position value), top and left. If you want to you use bottom or right don't use this mixin. 
+@mixin position-top-left($position: relative, $top: 0, $left: 0) {
+    position: $position;
+    top: $top;
+    left: $left;
+}
