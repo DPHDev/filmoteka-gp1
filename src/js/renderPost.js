@@ -8,9 +8,25 @@ export async function renderPost(posts, page, listGenres) {
     try {
         const { page, results, total_pages, total_results } = posts.data;
         const promises = results.map(async ({ poster_path, id, title, genre_ids, release_date, vote_average }) => {
+            
             const genres = await varDOM.genresList(genre_ids, listGenres);
             const poster = poster_path === null ? varDOM.defaultPoster : `https://image.tmdb.org/t/p/w500${poster_path}`;
+            let genr = "";
+            let cont = 0;
+            for (const genre of genres) {
+                genr += genre;
+                cont += 1;
+                if(cont == 3 || cont == genres.length){
+                    break;
+                }
+                genr += ", ";
+            }
+            let year = [];            
+            year[0] = undefined;
             
+            if(release_date != undefined){
+                year = release_date.split('-')
+            }
             return `
             <figure class="movie-card" id="movie-detail">
                 <a class="poster-large" data-id="${id}" href="#">
@@ -20,12 +36,12 @@ export async function renderPost(posts, page, listGenres) {
                     <h3 class="card-movie-title">${title}</h3>
                     <div class="info-items">
                         <p class="info-item">
-                            ${genres}
+                            ${genr}
                         </p>
-                        <p class="info-item">
-                            ${release_date}
+                        <p class="info-item ">
+                           |  ${year[0]}
                         </p>
-                        <p class="info-item">
+                        <p class="info-item orange">
                             ${vote_average}
                         </p>
                     </div>
@@ -61,9 +77,9 @@ export function printCard(results){
                                     ${genres}
                                 </p>
                                 <p class="info-item">
-                                    ${year[0]}
+                                   |  ${year[0]}
                                 </p>
-                                <p class="info-item">
+                                <p class="info-item orange">
                                     ${results.vote_average}
                                 </p>
                             </div>

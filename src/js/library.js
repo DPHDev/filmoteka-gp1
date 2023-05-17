@@ -22,7 +22,9 @@ clearQueue = document.getElementById('clearQueue');
       filmsRender.innerHTML = `Oops! Your "watched" library is empty!`;
       clearWatched.style.display = "none";
       clearQueue.style.display = "none";
+      buttonWatchet.focus();
     } else {
+      buttonWatchet.focus();
       clearQueue.style.display = 'none';
       deletechildrens(filmsRender);
       if (ids.length === undefined) {
@@ -48,6 +50,7 @@ clearQueue = document.getElementById('clearQueue');
  
   
   buttonWatchet.addEventListener('click', e => {
+    buttonWatchet.focus();
     e.preventDefault();
     let ids = getWatched();
     clearQueue.style.display = 'none';
@@ -79,6 +82,7 @@ clearQueue = document.getElementById('clearQueue');
   });
   
   buttonQueue.addEventListener('click', e => {
+    buttonQueue.focus();
     e.preventDefault();
     let ids = getQueue();
     clearWatched.style.display = 'none';

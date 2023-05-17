@@ -18,43 +18,49 @@
     <header>
       <include src="./partials/switch.html"></include>
       <div class="header-container container">
-        <div class="container-divisions">
-          <div class="division-left">
-            <div class="logo-icon">
-              <svg
-                class="film-icon"
-                width="24"
-                height="24"
-                href="/src/index.html"
-              >
-                <use href="../assets/images/icons.svg#icon-film"></use>
-              </svg>
-            </div>
-            <div class="page-name">
-              <h1 href="../index.html">Filmoteka</h1>
-            </div>
-          </div>
-          <nav class="division-right">
-            <ul class="menu-home">
-              <li class="menu-home__item">
-                <a class="menu-home__link" href="../index.html">Home</a>
-              </li>
-              <li class="menu-home__item is-active">
-                <a class="menu-home__link" href="./my-library.html" id="library"
-                  >My library</a
+        <div class="container__image">
+          <div class="container-divisions">
+            <div class="division-left">
+              <div class="logo-icon">
+                <svg
+                  class="film-icon"
+                  width="24"
+                  height="24"
+                  href="/src/index.html"
                 >
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="division-center">
-          <div class="buttons">
-            <button id="buttonWatchet" class="button__watchet">WATCHET</button>
-            <button id="buttonQueue" class="button__queue">QUEUE</button>
+                  <use href="../assets/images/icons.svg#icon-film"></use>
+                </svg>
+              </div>
+              <div class="page-name">
+                <h1 href="../index.html">Filmoteka</h1>
+              </div>
+            </div>
+            <nav class="division-right">
+              <ul class="menu-home">
+                <li class="menu-home__item">
+                  <a class="menu-home__link" href="../index.html">Home</a>
+                </li>
+                <li class="menu-home__item is-active">
+                  <a class="menu-home__link" href="./my-library.html" id="library"
+                    >My library</a
+                  >
+                </li>
+              </ul>
+            </nav>
           </div>
-          <button id="clearWatched" class="clearWatched">CLEAR WATCHET LIST</button>
-          <button id="clearQueue" class="clearQueue">CLEAR QUEUE LIST</button>
+          <div class="division-center">
+            <div class="buttons">
+              <button id="buttonWatchet" class="button__watchet buttons__btn">WATCHET</button>
+              <button id="buttonQueue" class="button__queue buttons__btn">QUEUE</button>
+            </div>
+            <div class="clear">
+              <button id="clearWatched" class="clearWatched buttons__btn clear__buttons">CLEAR WATCHET LIST</button>
+              <button id="clearQueue" class="clearQueue buttons__btn clea__buttonsr">CLEAR QUEUE LIST</button>
+            </div>
+           
+          </div>
         </div>
+        
       </div>
     </header>
     <main>
