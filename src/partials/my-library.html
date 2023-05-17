@@ -18,36 +18,43 @@
     <header>
       <include src="./partials/switch.html"></include>
       <div class="header-container container">
-        <section>
-          <div class="container-divisions">
-            <div class="division-left">
-              <div class="logo-icon">
-                <svg class="film-icon" width="24" height="24">
-                  <use href="../assets/images/icons.svg#icon-film"></use>
-                </svg>
-              </div>
-              <div class="page-name">
-                <h1>Filmoteka</h1>
-              </div>
+        <div class="container-divisions">
+          <div class="division-left">
+            <div class="logo-icon">
+              <svg
+                class="film-icon"
+                width="24"
+                height="24"
+                href="/src/index.html"
+              >
+                <use href="../assets/images/icons.svg#icon-film"></use>
+              </svg>
             </div>
-            <nav class="division-right">
-              <ul class="menu-home">
-                <li class="menu-home__item">
-                  <a class="menu-home__link" href="../index.html">Home</a>
-                </li>
-                <li class="menu-home__item is-active">
-                  <a class="menu-home__link" href="my-library.html"
-                    >My library</a
-                  >
-                </li>
-              </ul>
-            </nav>
+            <div class="page-name">
+              <h1 href="../index.html">Filmoteka</h1>
+            </div>
           </div>
+          <nav class="division-right">
+            <ul class="menu-home">
+              <li class="menu-home__item">
+                <a class="menu-home__link" href="../index.html">Home</a>
+              </li>
+              <li class="menu-home__item is-active">
+                <a class="menu-home__link" href="./my-library.html" id="library"
+                  >My library</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="division-center">
           <div class="buttons">
-            <button class="buttons__button" type="button">WATCHED</button>
-            <button class="buttons__button" type="button">QUEUE</button>
+            <button class="button__watchet">WATCHET</button>
+            <button class="button__queue">QUEUE</button>
           </div>
-        </section>
+          <button class="clearWatched">CLEAR WATCHET LIST</button>
+          <button class="clearQueue">CLEAR QUEUE LIST</button>
+        </div>
       </div>
     </header>
     <main></main>
@@ -69,15 +76,25 @@
         </svg>
         <p class="footer__text">
           by
-          <span class="footer__span" data-modal-open
+          <span id="footer-modal__open" class="footer__span" data-modal-open
             >GoIT Students | team: "Dev Vinci Code"</span
           >
         </p>
       </section>
-
       <!-- Footer Modal -->
       <!-- Here you will see the code for the modal but it's not finished yet -->
     </footer>
+
+    <div class="backdrop is-hidden" id="data-modal">
+    <div class="modal-footer">
+      <button id="data-modal-close" class="modal_close">
+        <svg class="icon-close-modal">
+          <use href="../assets/images/icons.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  </footer>
     <script type="module" src="../js/index.js"></script>
   </body>
 </html>
