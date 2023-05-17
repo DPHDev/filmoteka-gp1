@@ -1,86 +1,121 @@
 <!DOCTYPE html>
 <html lang="en-es">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./sass/index.scss" />
-  
-  <title>Filmoteka</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@100;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <title>Filmoteka</title>
+  </head>
 
-<body>
-  <header>
-    <include src="./partials/switch.html"></include>
-    <div class="header-container container">
-      <div class="container-divisions">
-        <div class="division-left">
-          <div class="logo-icon">
-            <svg class="film-icon" width="24" height="24" href="/src/index.html">
-              <use href="./assets/images/icons.svg#icon-film"></use>
-            </svg>
+  <body>
+    <include src="./partials/modal.html"></include>
+    <include src="./partials/footerModal.html"></include>
+    <header>
+      <include src="./partials/switch.html"></include>
+      <div class="header-container container">
+        <div class="container-divisions">
+          <div class="division-left">
+            <div class="logo-icon">
+              <svg
+                class="film-icon"
+                width="24"
+                height="24"
+                href="/src/index.html"
+              >
+                <use href="./assets/images/icons.svg#icon-film"></use>
+              </svg>
+            </div>
+            <div class="page-name">
+              <h1 href="./index.html">Filmoteka</h1>
+            </div>
           </div>
-          <div class="page-name">
-            <h1 href="/src/index.html" >Filmoteka</h1>
-          </div>
+          <nav class="division-right">
+            <ul class="menu-home">
+              <li class="menu-home__item is-active">
+                <a class="menu-home__link" href="./index.html">Home</a>
+              </li>
+              <li class="menu-home__item">
+                <a class="menu-home__link" href="./partials/my-library.html"
+                  >My library</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav class="division-right">
-          <ul class="menu-home">
-            <li class="menu-home__item is-active">
-              <button class="menu-home__btn" href="/src/index.html">Home</button>
-            </li>
-            <li class="menu-home__item">
-              <button class="menu-home__btn library">My library</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="division-center">
-        <form>
+        <div class="division-center">
+          <form>
             <label class="search-input">
-              <input name="search-query" autocomplete="off" id="text-search" type="text" placeholder="Movie search..." autofocus>              
+              <input
+                name="search-query"
+                autocomplete="off"
+                id="text-search"
+                type="text"
+                placeholder="Movie search..."
+                autofocus
+              />
               <button type="button" class="scoop-icon-btn" id="btn-search">
                 <svg class="scop-icon" width="12" height="12" fill="none">
                   <use href="./assets/images/icons.svg#icon-lup"></use>
                 </svg>
               </button>
-            </label>            
-        </form>
-        <div>
-          <spam class="error"></spam>
-        </div>       
+            </label>
+          </form>
+          <div>
+            <spam class="error"></spam>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="films">
+      <div class="films__container">
+        <h2 hidden>Popular films</h2>
+        <div id="films" class="films_gallery"></div>
+      </div>
+    </section>
+    <div id="back-to-top" class="back-to-top">
+      <svg class="back-to-top__icon" viewBox="0 0 512 512" width="30" height="30">
+        <use href="./assets/images/icons.svg#toTop"></use>
+      </svg>
+    </div>
+    <div class="pg-container">
+      <div class="pg-controler" id="pg-contoler">
+        <button type="button" id="pg-back-btn" class="btn-back-page"> « </button>
+        <ul class="pages-list" id="pages-list">
+        </ul>
+        <button type="button" id="pg-advance-btn" class="btn-adv-page"> » </button>
       </div>
     </div>
-    <div class="buttons">
-      <button class="button__watchet">WATCHET</button>
-      <button class="button__queue">QUEUE</button>
-    </div>
-    <button class="clearWatched">CLEAR WATCHET LIST</button>
-    <button class="clearQueue">CLEAR QUEUE LIST</button>
-  </header>
-  <include src="./partials/modal.html"></include>
-  <section class="films">
-    <div class="films__container">
-      <h2 hidden>Popular films</h2>
-      <div id="films" class="films_gallery"></div>
-    </div>
-    <div id="pg-controler" class="pg-controler"></div>
-  </section>
-  <div id="back-to-top" class="back-to-top">
-    <svg class="back-to-top__icon" viewBox="0 0 512 512" width="30" height="30">
-      <use href="./assets/images/icons.svg#toTop"></use>
-    </svg>
-  </div>
-  <div class="pg-container">
-    <div class="pg-controler" id="pg-contoler">
-      <button type="button" id="pg-back-btn" class="btn-back-page"> « </button>
-      <ul class="pages-list" id="pages-list">
-      </ul>
-      <button type="button" id="pg-advance-btn" class="btn-adv-page"> » </button>
-    </div>
-  </div>
-  <footer></footer>
-  <script type="module" src="./js/index.js"></script>
-</body>
-
+    <footer>
+      <section class="footer">
+        <p class="footer__text">
+          © 2023 | All Rights Reserved | Developed with
+        </p>
+        <svg
+          class="footer__svg"
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="14"
+        >
+          <use
+            class="footer__use"
+            href="./assets/images/icons.svg#favorite"
+          ></use>
+        </svg>
+        <p class="footer__text">
+          by
+          <a class="footer__span" id="data-modal-open"
+            >GoIT Students | team: "Dev Vinci Code"</a
+          >
+        </p>
+      </section>
+    </footer>
+    <script type="module" src="./js/index.js"></script>
+  </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sass/index.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@100;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>My library</title>
+  </head>
+
+  <body>
+    <header>
+      <include src="./partials/switch.html"></include>
+      <div class="header-container container">
+        <div class="container-divisions">
+          <div class="division-left">
+            <div class="logo-icon">
+              <svg
+                class="film-icon"
+                width="24"
+                height="24"
+                href="/src/index.html"
+              >
+                <use href="../assets/images/icons.svg#icon-film"></use>
+              </svg>
+            </div>
+            <div class="page-name">
+              <h1 href="../index.html">Filmoteka</h1>
+            </div>
+          </div>
+          <nav class="division-right">
+            <ul class="menu-home">
+              <li class="menu-home__item">
+                <a class="menu-home__link" href="../index.html">Home</a>
+              </li>
+              <li class="menu-home__item is-active">
+                <a class="menu-home__link" href="./my-library.html" id="library"
+                  >My library</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="division-center">
+          <div class="buttons">
+            <button id="buttonWatchet" class="button__watchet">WATCHET</button>
+            <button id="buttonQueue" class="button__queue">QUEUE</button>
+          </div>
+          <button id="clearWatched" class="clearWatched">CLEAR WATCHET LIST</button>
+          <button id="clearQueue" class="clearQueue">CLEAR QUEUE LIST</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="films"></section>
+        <div class="films__container">
+          <h2 hidden>Popular films</h2>
+          <div id="films" class="films_gallery"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <section class="footer">
+        <p class="footer__text">
+          © 2023 | All Rights Reserved | Developed with
+        </p>
+        <svg
+          class="footer__svg"
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="14"
+        >
+          <use
+            class="footer__use"
+            href="../assets/images/icons.svg#favorite"
+          ></use>
+        </svg>
+        <p class="footer__text">
+          by
+          <span id="footer-modal__open" class="footer__span" data-modal-open
+            >GoIT Students | team: "Dev Vinci Code"</span
+          >
+        </p>
+      </section>
+      <!-- Footer Modal -->
+      <!-- Here you will see the code for the modal but it's not finished yet -->
+    </footer>
+
+    <div class="backdrop is-hidden" id="data-modal">
+    <div class="modal-footer">
+      <button id="data-modal-close" class="modal_close">
+        <svg class="icon-close-modal">
+          <use href="../assets/images/icons.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  </footer>
+    <script type="module" src="../js/library.js"></script>
+  </body>
+</html>
