@@ -1,6 +1,6 @@
 import { getAPI, getMovie } from './request-api';
 import { varDOM } from './var-selector-dom';
-import { renderPost, printCard, pageNow, total_pgs } from './renderPost';
+import { renderPost, printCard, pageNow, total_pgs} from './renderPost';
 import { detailsMovieValues } from './modal-movie-details';
 import { paginationButtons, renderPerPagination } from './pagination';
 import { scrollTop } from './scroll-top';
@@ -49,88 +49,72 @@ async function renderPostAsync(data, page, movListGen) {
 
 // Charge render movie trending
 async function renderMoviesInit(page) {
+
   const postTrending = await getAPI.trendMovies(page);
   const movieListGenres = await getAPI.genres();
   movListGen = movieListGenres.slice();
   await renderPostAsync(postTrending, page, movieListGenres);
   // Rendering pagination
   paginationButtons();
+    
+  document.getElementById("pg-contoler").addEventListener('click', async (event) => {
 
-  document
-    .getElementById('pg-contoler')
-    .addEventListener('click', async event => {
-      if (event.target && event.target.matches('#num-page-btn')) {
-        const page = event.target;
-        const postTrendingPage = await getAPI.trendMovies(page.textContent);
-        await renderPostAsync(
-          postTrendingPage,
-          page.textContent,
-          movieListGenres
-        );
+    if (event.target && event.target.matches("#num-page-btn")) {
+      const page = event.target;
+      const postTrendingPage = await getAPI.trendMovies(page.textContent);
+      await renderPostAsync(postTrendingPage, page.textContent, movieListGenres);
+ 
+      paginationButtons();
+      // Selection of element DOM
+      console.log(pageNow);
+      const detail_movie = document.querySelectorAll('.movie-card');
 
-        paginationButtons();
-        // Selection of element DOM
-        console.log(pageNow);
-        const detail_movie = document.querySelectorAll('.movie-card');
-
-        //Event click open movie details by class .movie-card
-        detail_movie.forEach(movie => {
-          const id_movie = movie.querySelector('a');
-          movie.addEventListener('click', () => {
-            modalContainer.style.display = 'block';
-            detailsMovieValues(id_movie.dataset.id);
-          });
+      //Event click open movie details by class .movie-card
+      detail_movie.forEach(movie => {
+        const id_movie = movie.querySelector('a');
+        movie.addEventListener('click', () => {
+          modalContainer.style.display = "block";
+          detailsMovieValues(id_movie.dataset.id);
         });
-      } else if (event.target && event.target.matches('#pg-advance-btn')) {
-        pageAdv = pageNow === total_pgs ? pageNow : pageNow + 1;
-        const postTrendingPageAdv = await getAPI.trendMovies(pageAdv);
-        await renderPostAsync(postTrendingPageAdv, pageAdv, movieListGenres);
-        paginationButtons();
-        console.log(pageNow);
+      })
+    } else if (event.target && event.target.matches("#pg-advance-btn")) {
+ 
+      pageAdv = pageNow === total_pgs ? pageNow : pageNow + 1;
+      const postTrendingPageAdv = await getAPI.trendMovies(pageAdv);
+      await renderPostAsync(postTrendingPageAdv, pageAdv, movieListGenres);
+      paginationButtons();
+      console.log(pageNow);
 
-        const detail_movie = document.querySelectorAll('.movie-card');
+      const detail_movie = document.querySelectorAll('.movie-card');
 
-        //Event click open movie details by class .movie-card
-        detail_movie.forEach(movie => {
-          const id_movie = movie.querySelector('a');
-          movie.addEventListener('click', () => {
-            modalContainer.style.display = 'block';
-            detailsMovieValues(id_movie.dataset.id);
-          });
+      //Event click open movie details by class .movie-card
+      detail_movie.forEach(movie => {
+        const id_movie = movie.querySelector('a');
+        movie.addEventListener('click', () => {
+          modalContainer.style.display = "block";
+          detailsMovieValues(id_movie.dataset.id);
         });
-      } else if (event.target && event.target.matches('#pg-back-btn')) {
-        pageBack = pageNow === 1 ? pageNow : pageNow - 1;
-        const postTrendingPageBack = await getAPI.trendMovies(pageBack);
-        await renderPostAsync(postTrendingPageBack, pageBack, movieListGenres);
-        paginationButtons();
-        const detail_movie = document.querySelectorAll('.movie-card');
+      });
+    } else if (event.target && event.target.matches("#pg-back-btn")) {
+  
+      pageBack = pageNow === 1 ? pageNow : pageNow - 1;
+      const postTrendingPageBack = await getAPI.trendMovies(pageBack);
+      await renderPostAsync(postTrendingPageBack, pageBack, movieListGenres);
+      paginationButtons();
+      console.log(pageNow);
 
-        //Event click open movie details by class .movie-card
-        detail_movie.forEach(movie => {
-          const id_movie = movie.querySelector('a');
-          movie.addEventListener('click', () => {
-            modalContainer.style.display = 'block';
-            detailsMovieValues(id_movie.dataset.id);
-          });
+      const detail_movie = document.querySelectorAll('.movie-card');
+      //Event click open movie details by class .movie-card
+      detail_movie.forEach(movie => {
+        const id_movie = movie.querySelector('a');
+        movie.addEventListener('click', () => {
+          modalContainer.style.display = "block";
+          detailsMovieValues(id_movie.dataset.id);
         });
-      }
-    });
-
-  // Element selector by class .movie-card
-  const detail_movie = document.querySelectorAll('.movie-card');
-  //Event click open movie details by class .movie-card
-  detail_movie.forEach(movie => {
-    const id_movie = movie.querySelector('a');
-    movie.addEventListener('click', () => {
-      modalContainer.style.display = 'block';
-      detailsMovieValues(id_movie.dataset.id);
-    });
-  });
-  // Event click close button modal window
-  modalCloseBtn.addEventListener('click', () => {
-    modalContainer.style.display = 'none';
-  });
-}
+      });
+    }
+  })
+};
 
   renderMoviesInit(page);
 

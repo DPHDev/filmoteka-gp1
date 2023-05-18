@@ -13,7 +13,7 @@ export function paginationButtons() {
   let limitSup = total_pgs - 2;
 
   switch (true) {
-    case pageNow < limitInf:
+    case pageNow <= limitInf:
       for (let i = 1; i <= 5; i++) {
         markup += `<li><button id="num-page-btn">${i}</button></li>`;
       }
