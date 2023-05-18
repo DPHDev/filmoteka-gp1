@@ -28,8 +28,8 @@ export const varDOM = {
   library: document.getElementById('library'),
   home: document.querySelector('.menu-home__link'),
   error: document.querySelector('.error'),
-
+  scrollTopBtn: document.querySelector('.back-to-top'),
   openModalFooter: document.getElementById('data-modal-open'),
   closeModalFooter: document.getElementById('data-modal-close'),
-  modalFooter: document.getElementById('data-modal'),
+  modalFooter: document.getElementById('data-modal')
 };

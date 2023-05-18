@@ -13,36 +13,30 @@
     <link rel="stylesheet" href="./sass/index.scss" />
     <title>Filmoteka</title>
   </head>
-
-  <body>
-    <include src="./partials/modal.html"></include>
-    <include src="./partials/footerModal.html"></include>
-    <header>
+<body>
+  <include src="./partials/modal.html"></include>
+  <include src="./partials/footerModal.html"></include>
+  <header>
+    <section class="header-container container">
       <include src="./partials/switch.html"></include>
-      <div class="header-container container">
-        <div class="container-divisions">
-          <div class="division-left">
-            <div class="logo-icon">
-              <svg
-                class="film-icon"
-                width="24"
-                height="24"
-                href="/src/index.html"
-              >
-                <use href="./assets/images/icons.svg#icon-film"></use>
-              </svg>
-            </div>
-            <div class="page-name">
-              <h1 href="./index.html">Filmoteka</h1>
-            </div>
+      <div class="container-divisions">
+        <div class="division-left">
+          <div class="logo-icon">
+            <svg class="film-icon" width="24" height="24" href="/src/index.html">
+              <use href="./assets/images/icons.svg#icon-film"></use>
+            </svg>
           </div>
+          <div class="page-name">
+            <h1 href="/src/index.html" >Filmoteka</h1>
+          </div>
+        </div>
           <nav class="division-right">
             <ul class="menu-home">
               <li class="menu-home__item is-active">
                 <a class="menu-home__link" href="./index.html">Home</a>
               </li>
               <li class="menu-home__item">
-                <a class="menu-home__link" href="./partials/my-library.html"
+                <a class="menu-home__link" href="./my-library.html"
                   >My library</a
                 >
               </li>
@@ -71,16 +65,27 @@
             <spam class="error"></spam>
           </div>
         </div>
-      </div>
+    </section>
     </header>
     <section class="films">
       <div class="films__container">
         <h2 hidden>Popular films</h2>
         <div id="films" class="films_gallery"></div>
       </div>
-      <div id="pg-controler" class="pg-controler"></div>
     </section>
-    <div class="back-to-top"></div>
+    <div id="back-to-top" class="back-to-top">
+      <svg class="back-to-top__icon" viewBox="0 0 512 512" width="30" height="30">
+        <use href="./assets/images/icons.svg#toTop"></use>
+      </svg>
+    </div>
+    <div class="pg-container">
+      <div class="pg-controler" id="pg-contoler">
+        <button type="button" id="pg-back-btn" class="btn-back-page"> « </button>
+        <ul class="pages-list" id="pages-list">
+        </ul>
+        <button type="button" id="pg-advance-btn" class="btn-adv-page"> » </button>
+      </div>
+    </div>
     <footer>
       <section class="footer">
         <p class="footer__text">
