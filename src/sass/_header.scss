@@ -65,8 +65,8 @@
         &.is-active:before,&:hover:before{
             width: 70%; 
             opacity: 1;
-
             }
+
         &:after {
             content:"";
             border-bottom: 2px solid red;
