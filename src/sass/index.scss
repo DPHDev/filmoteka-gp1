@@ -6,3 +6,13 @@
 @import 'components/theme-dark';
 @import 'utils/mixins';
 @import 'utils/variables';
+@import './pagination';
+@import './library';
+
+.orange{
+    background: #FF6B01;
+    color:#fefefe;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;    
+}
