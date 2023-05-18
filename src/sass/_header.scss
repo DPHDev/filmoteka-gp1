@@ -150,44 +150,51 @@
 .switch-button {
     display: flex;
     justify-content: flex-end;
-    
+    cursor: pointer;
+}
 
-    &__label{
-        background-color: white;
-        width: 30px;
-        height: 16px;
-        border-radius: 30px;
-        border-style: solid;
-        border-color: #FF6B08;
-        border-width: 2px;
-        display: inline-block;
-        position: relative;
-        &:before {
-            transition: .2s;
-            display: block;
-            position: absolute;
-            margin: 1px;
-            width: 10px;
-            height: 10px;
-            background-color: #FF6B08;
-            content: '';
-            border-radius: 50%;
-            box-shadow: inset 0px 0px 0px 1px var(--color-black);
-        }
-    }
-    
-    &__checkbox:checked + &__label {
-        background-color: gray;
-        border-color: #545454;
-    }
-    &__checkbox:checked + &__label:before {
-        transform: translateX(1rem);
-        background-color: black;
-        
-    }
-    &__checkbox {
-        display: none;
-    }
+.switch-button__label {
+    background-color: white;
+    width: 30px;
+    height: 16px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #FF6B08;
+    border-width: 2px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.switch-button__label:before {
+    transition: .2s;
+    display: block;
+    position: absolute;
+    margin: 1px;
+    width: 10px;
+    height: 10px;
+    background-color: #FF6B08;
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+
+.switch-button__checkbox:checked+.switch-button__label {
+    background-color: gray;
+    border-color: #545454;
+}
+
+.switch-button__checkbox:checked+.switch-button__label:before {
+    transform: translateX(1rem);
+    background-color: black;
+}
+
+.switch-button__checkbox {
+    display: none;
+}
+
+.body-theme {
+    background-color: #333;
 }
 
 @media only screen and (min-width: 320px) and (max-width:767px){
