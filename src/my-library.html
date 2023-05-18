@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="../sass/index.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,8 +15,6 @@
   </head>
 
   <body>
-    <include src="./partials/modal.html"></include>
-    <include src="./partials/footerModal.html"></include>
     <header>
       <section class="header-container container">
         <include src="./partials/switch.html"></include>
@@ -27,19 +25,19 @@
                 class="film-icon"
                 width="24"
                 height="24"
-                href="./index.html"
+                href="/src/index.html"
               >
-                <use href="./assets/images/icons.svg#icon-film"></use>
+                <use href="../assets/images/icons.svg#icon-film"></use>
               </svg>
             </div>
             <div class="page-name">
-              <h1 href="./index.html">Filmoteka</h1>
+              <h1 href="../index.html">Filmoteka</h1>
             </div>
           </div>
           <nav class="division-right">
             <ul class="menu-home">
               <li class="menu-home__item">
-                <a class="menu-home__link" href="./index.html">Home</a>
+                <a class="menu-home__link" href="../index.html">Home</a>
               </li>
               <li class="menu-home__item is-active">
                 <a class="menu-home__link" href="./my-library.html" id="library"
@@ -59,25 +57,14 @@
         </div>
       </section>
     </header>
+    <main>
       <section class="films"></section>
         <div class="films__container">
           <h2 hidden>Popular films</h2>
           <div id="films" class="films_gallery"></div>
         </div>
       </section>
-      <div id="back-to-top" class="back-to-top">
-      <svg class="back-to-top__icon" viewBox="0 0 512 512" width="30" height="30">
-        <use href="./assets/images/icons.svg#toTop"></use>
-      </svg>
-    </div>
-    <div class="pg-container">
-      <div class="pg-controler" id="pg-contoler">
-        <button type="button" id="pg-back-btn" class="btn-back-page"> « </button>
-        <ul class="pages-list" id="pages-list">
-        </ul>
-        <button type="button" id="pg-advance-btn" class="btn-adv-page"> » </button>
-      </div>
-    </div>
+    </main>
     <footer>
       <section class="footer">
         <p class="footer__text">
@@ -91,7 +78,7 @@
         >
           <use
             class="footer__use"
-            href="./assets/images/icons.svg#favorite"
+            href="../assets/images/icons.svg#favorite"
           ></use>
         </svg>
         <p class="footer__text">
@@ -103,7 +90,18 @@
       </section>
       <!-- Footer Modal -->
       <!-- Here you will see the code for the modal but it's not finished yet -->
+    </footer>
+
+    <div class="backdrop is-hidden" id="data-modal">
+    <div class="modal-footer">
+      <button id="data-modal-close" class="modal_close">
+        <svg class="icon-close-modal">
+          <use href="../assets/images/icons.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
   </footer>
-    <script type="module" src="./js/library.js"></script>
+    <script type="module" src="../js/library.js"></script>
   </body>
 </html>

@@ -21,11 +21,26 @@ export async function renderPost(posts, page, listGenres) {
             const date_year = release_date != undefined ? release_date.slice(0, 4) : '2023';
 
             const poster = poster_path === null ? varDOM.defaultPoster : `https://image.tmdb.org/t/p/w500${poster_path}`;
+            let genr = "";
+            let cont = 0;
+            for (const genre of genres) {
+                genr += genre;
+                cont += 1;
+                if(cont == 3 || cont == genres.length){
+                    break;
+                }
+                genr += ", ";
+            }
+            let year = [];            
+            year[0] = undefined;
             
+            if(release_date != undefined){
+                year = release_date.split('-')
+            }
             return `
             <figure class="movie-card" id="movie-detail">
                 <a class="poster-large" data-id="${id}" href="#">
-                    <img class='gallery__image' src="${poster}" alt="${title}" loading="lazy" />
+                    <img id="image" class='gallery__image' src="${poster}" alt="${title}" loading="lazy" />
                 </a>
                 <figcaption class="info">
                     <h3 class="card-movie-title">${title.toUpperCase()}</h3>
@@ -63,9 +78,7 @@ export function printCard(results){
     insertCard = `
                     <figure class="movie-card" id="movie-detail">
                         <a class="poster-large" data-id="" href="#">
-                            <img class='gallery__image' src="${baseImageUrl}w300${
-      results.poster_path
-    }" alt="${results.tittle}" loading="lazy" />
+                            <img class='gallery__image' src="${baseImageUrl}w300${results.poster_path}" alt="${results.tittle}" loading="lazy"  data-id="${results.id}"/>
                         </a>
                         <figcaption class="info">
                             <h3 class="card-movie-title">${
@@ -76,7 +89,7 @@ export function printCard(results){
                                     ${genres}
                                 </p>
                                 <p class="info-item">
-                                    ${year[0]}
+                                   |  ${year[0]}
                                 </p>
                                 <p class="info-item">
                                     ${results.vote_average.toFixed(1)}
