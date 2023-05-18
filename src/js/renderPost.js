@@ -60,13 +60,17 @@ export function printCard(results){
     let genres = getGenre(results.genres);
     let year = results.release_date.split('-');
    
-    insertCard =`
+    insertCard = `
                     <figure class="movie-card" id="movie-detail">
                         <a class="poster-large" data-id="" href="#">
-                            <img class='gallery__image' src="${baseImageUrl}w300${results.poster_path}" alt="${results.tittle}" loading="lazy" />
+                            <img class='gallery__image' src="${baseImageUrl}w300${
+      results.poster_path
+    }" alt="${results.tittle}" loading="lazy" />
                         </a>
                         <figcaption class="info">
-                            <h3 class="card-movie-title">${results.original_title}</h3>
+                            <h3 class="card-movie-title">${
+                              results.original_title
+                            }</h3>
                             <div class="info-items">
                                 <p class="info-item">
                                     ${genres}
@@ -75,12 +79,12 @@ export function printCard(results){
                                     ${year[0]}
                                 </p>
                                 <p class="info-item">
-                                    ${results.vote_average}
+                                    ${results.vote_average.toFixed(1)}
                                 </p>
                             </div>
 
                         </figcaption>
-                    </figure>`
+                    </figure>`;
     
 
     return insertCard;
