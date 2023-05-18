@@ -13,8 +13,10 @@ import {
 import { getMovie } from "../js/request-api";
 import { printCard } from "../js/renderPost";
 import { varDOM } from "./var-selector-dom";
+import { scrollTop } from './scroll-top';
 const{modalContainer, modalQueueBtn, modalWatchedBtn, modalCloseBtn}=varDOM;
 import { detailsMovieValues } from "./modal-movie-details";
+import { theme } from './theme-dark';
 
 filmsRender = document.getElementById('films');
 buttonWatchet = document.getElementById('buttonWatchet');
@@ -26,6 +28,7 @@ removeWatche = document.getElementById('removeWatche');
 removeQueue = document.getElementById('removeQweue');
 addWatched = document.getElementById('watch-button');
 addQueue = document.getElementById('queue-button');
+scrollTopBtn = document.querySelector('.back-to-top');
 
     let ids = getWatched();  
   //   buttons.style.display = 'block';
@@ -186,3 +189,11 @@ modalWatchedBtn.addEventListener('click', e => {
       e.preventDefault();
       modalContainer.style.display='none';
   });
+
+
+// Scroll button to top
+window.addEventListener('scroll', scrollTop);
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});

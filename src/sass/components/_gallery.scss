@@ -66,13 +66,15 @@
 .back-to-top {
   display: none;
   position: fixed;
-  right: 15px;
-  top: 50%;
+  right: 3%;
+  bottom: 10%;
   cursor: pointer;
+
   svg {
     opacity: 0.7;
     fill: getColor('accent');
   }
+
   &:hover svg {
     opacity: 1;
     transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);

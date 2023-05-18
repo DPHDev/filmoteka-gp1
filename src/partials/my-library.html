@@ -13,8 +13,8 @@
     />
     <title>My library</title>
   </head>
-
   <body>
+    <include src="./partials/modal.html"></include>
     <header>
       <section class="header-container">
         <include src="./partials/switch.html"></include>
@@ -31,7 +31,7 @@
               </svg>
             </div>
             <div class="page-name">
-              <h1 href="../index.html">Filmoteka</h1>
+              <a href="../index.html" class="main_tittle"><h1>Filmoteka</h1></a>
             </div>
           </div>
           <nav class="division-right">
@@ -49,21 +49,28 @@
         </div>
         <div class="division-center">
           <div class="buttons">
-            <button id="buttonWatchet" class="button__watchet">WATCHET</button>
-            <button id="buttonQueue" class="button__queue">QUEUE</button>
+            <button id="buttonWatchet" class="button__watchet buttons__btn">WATCHET</button>
+            <button id="buttonQueue" class="button__queue buttons__btn">QUEUE</button>
           </div>
-          <button id="clearWatched" class="clearWatched">CLEAR WATCHET LIST</button>
-          <button id="clearQueue" class="clearQueue">CLEAR QUEUE LIST</button>
+        <div class="clear">
+          <button id="clearWatched" class="clearWatched buttons__btn">CLEAR WATCHET LIST</button>
+          <button id="clearQueue" class="clearQueue buttons__btn">CLEAR QUEUE LIST</button>
+        </div>
         </div>
       </section>
     </header>
     <main>
-      <section class="films"></section>
-        <div class="films__container">
-          <h2 hidden>Popular films</h2>
-          <div id="films" class="films_gallery"></div>
-        </div>
-      </section>
+    <section>
+      <div class="container">
+        <h2 hidden>Popular films</h2>
+        <div id="films" class="films"></div>
+      </div>
+    </section>
+    <div id="back-to-top" class="back-to-top">
+      <svg class="back-to-top__icon" viewBox="0 0 512 512" width="50" height="50">
+        <use href="../assets/images/icons.svg#toTop"></use>
+      </svg>
+    </div>
     </main>
     <footer>
       <section class="footer">
@@ -91,7 +98,6 @@
       <!-- Footer Modal -->
       <!-- Here you will see the code for the modal but it's not finished yet -->
     </footer>
-
     <div class="backdrop is-hidden" id="data-modal">
     <div class="modal-footer">
       <button id="data-modal-close" class="modal_close">
