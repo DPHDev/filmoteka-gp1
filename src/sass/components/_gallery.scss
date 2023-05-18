@@ -35,27 +35,34 @@
       border-radius: 4px;
     }
   }
-  
-  .info {
-    padding-top: 10px;
+}
+
+.info {
+  margin-top: 10px;
+
+  .card-movie-title {
+    @include text(500, 12px, 16px);
+    margin-left: 3px;
+  }
+
+  .info-items {
+    @include flex-container(row, flex-start, center);
+    font-size: 12px;
+    gap: 5px;
+    font-weight: bold;
+    color: getColor('accent');
+  }
+
+  .info-items:nth-child(3) {
+    @include flex-container(row, center, center);
+    color: getColor('white');
+    background-color: getColor('accent');
+    border-radius: 5px;
+    width: 36px;
+    height: 16px;
   }
 }
 
-
-.card-movie-title {
-  @include text(500, 12px, 16px);
-}
-
-.info-items {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  text-align: center;
-  gap: 5px;
-  padding: 7px;
-  font-weight: bold;
-  color: getColor("accent");
-}
 .back-to-top {
   display: none;
   position: fixed;
@@ -64,20 +71,31 @@
   cursor: pointer;
   svg {
     opacity: 0.7;
-    fill: getColor("accent");
+    fill: getColor('accent');
   }
   &:hover svg {
     opacity: 1;
     transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-.info-items :nth-child(3) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: getColor("white");
-  background: getColor("accent");
-  border-radius: 5px;
-  width: 36px;
-  height: 16px;
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .films {
+    .movie-card {
+      width: 293px;
+    }
+  }
+
+  .card-movie-title {
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .films {
+    .movie-card {
+      width: 280px;
+    }
+  }
 }
