@@ -4,38 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@100;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <title>Filmoteka</title>
+    <title>My library</title>
   </head>
-<body>
-  <include src="./partials/modal.html"></include>
-  <include src="./partials/footerModal.html"></include>
-  <header>
-    <section class="header-container container">
+
+  <body>
+    <include src="./partials/modal.html"></include>
+    <include src="./partials/footerModal.html"></include>
+    <header>
       <include src="./partials/switch.html"></include>
-      <div class="container-divisions">
-        <div class="division-left">
-          <div class="logo-icon">
-            <svg class="film-icon" width="24" height="24" href="/src/index.html">
-              <use href="./assets/images/icons.svg#icon-film"></use>
-            </svg>
-          </div>
-          <div class="page-name">
-            <h1 href="/src/index.html" >Filmoteka</h1>
+      <div class="header-container container">
+        <div class="container-divisions">
+          <div class="division-left">
+            <div class="logo-icon">
+              <svg
+                class="film-icon"
+                width="24"
+                height="24"
+                href="./index.html"
+              >
+                <use href="./assets/images/icons.svg#icon-film"></use>
+              </svg>
+            </div>
+            <div class="page-name">
+              <h1 href="./index.html">Filmoteka</h1>
+            </div>
           </div>
           <nav class="division-right">
             <ul class="menu-home">
-              <li class="menu-home__item is-active">
+              <li class="menu-home__item">
                 <a class="menu-home__link" href="./index.html">Home</a>
               </li>
-              <li class="menu-home__item">
-                <a class="menu-home__link" href="./my-library.html"
+              <li class="menu-home__item is-active">
+                <a class="menu-home__link" href="./my-library.html" id="library"
                   >My library</a
                 >
               </li>
@@ -43,36 +50,22 @@
           </nav>
         </div>
         <div class="division-center">
-          <form>
-            <label class="search-input">
-              <input
-                name="search-query"
-                autocomplete="off"
-                id="text-search"
-                type="text"
-                placeholder="Movie search..."
-                autofocus
-              />
-              <button type="button" class="scoop-icon-btn" id="btn-search">
-                <svg class="scop-icon" width="12" height="12" fill="none">
-                  <use href="./assets/images/icons.svg#icon-lup"></use>
-                </svg>
-              </button>
-            </label>
-          </form>
-          <div>
-            <spam class="error"></spam>
+          <div class="buttons">
+            <button id="buttonWatchet" class="button__watchet">WATCHET</button>
+            <button id="buttonQueue" class="button__queue">QUEUE</button>
           </div>
+          <button id="clearWatched" class="clearWatched">CLEAR WATCHET LIST</button>
+          <button id="clearQueue" class="clearQueue">CLEAR QUEUE LIST</button>
         </div>
-        </section>
-    </header>
-    <section class="films">
-      <div class="films__container">
-        <h2 hidden>Popular films</h2>
-        <div id="films" class="films_gallery"></div>
       </div>
-    </section>
-    <div id="back-to-top" class="back-to-top">
+    </header>
+      <section class="films"></section>
+        <div class="films__container">
+          <h2 hidden>Popular films</h2>
+          <div id="films" class="films_gallery"></div>
+        </div>
+      </section>
+      <div id="back-to-top" class="back-to-top">
       <svg class="back-to-top__icon" viewBox="0 0 512 512" width="30" height="30">
         <use href="./assets/images/icons.svg#toTop"></use>
       </svg>
@@ -103,12 +96,14 @@
         </svg>
         <p class="footer__text">
           by
-          <a class="footer__span" id="data-modal-open"
-            >GoIT Students | team: "Dev Vinci Code"</a
+          <span id="footer-modal__open" class="footer__span" data-modal-open
+            >GoIT Students | team: "Dev Vinci Code"</span
           >
         </p>
       </section>
-    </footer>
-    <script type="module" src="./js/index.js"></script>
+      <!-- Footer Modal -->
+      <!-- Here you will see the code for the modal but it's not finished yet -->
+  </footer>
+    <script type="module" src="./js/library.js"></script>
   </body>
 </html>

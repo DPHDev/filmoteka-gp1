@@ -6,7 +6,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow-y: hidden;
     background-color: rgba(0, 0, 0, 0.4);
     font-size: 14px;
     font-weight: 500;
@@ -53,6 +53,22 @@
 
         &__names {
             color: gray;
+        }
+
+        &_vote {
+            background: #FF6B01;
+            color:#fefefe;
+            border-radius: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        &_count {
+            background: #e0dfdf;
+            color:rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
     }
 
