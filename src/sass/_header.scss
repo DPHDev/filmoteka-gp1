@@ -7,7 +7,7 @@ header {
         background-size: cover;
         background-position: 50%;
         height: 230px;
-        padding: 30px 70px 97px;
+        // padding: 10px 70px 30px;
 
         .container-divisions {
             display: flex;
@@ -29,7 +29,6 @@ header {
                         text-shadow: 0 0 15px #ff001b;                     
                     }
                 }
-
 
                 .page-name {
                     h1{
@@ -56,7 +55,7 @@ header {
                 .menu-home {
                     display: flex;
                     justify-content: flex-end;
-
+                  
                     &__item {
                         font-weight: 500;
                         font-size: 12px;
@@ -97,13 +96,13 @@ header {
                         }
                     }
 
-                    &__btn {
+                    &__link {
                         padding: 1px 0;
                         text-transform: uppercase;
                         border: none;
                         background: transparent;
                         color: white;
-                        cursor: pointer;
+                        text-decoration: none;
                     }
 
                 }
