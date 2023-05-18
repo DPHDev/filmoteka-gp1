@@ -4,7 +4,10 @@ import {
     getQueue,
     getWatched,
     getGenre,
-    deletechildrens,    
+    deletechildrens,  
+    searchId,
+    removeQueue,
+    removeWatched  
 } from './localStorage';
 
 import { getMovie } from "../js/request-api";
@@ -31,7 +34,7 @@ addQueue = document.getElementById('queue-button');
       clearWatched.style.display = "none";
       clearQueue.style.display = "none";
       buttonWatchet.focus();
-    } else {
+    }else{      
       buttonWatchet.focus();
       clearQueue.style.display = 'none';
       deletechildrens(filmsRender);
@@ -119,35 +122,64 @@ addQueue = document.getElementById('queue-button');
         }
       }
     }
-  });
-
-  modalQueueBtn.addEventListener('click', e => {
-    e.preventDefault();
-    setQueue(modalQueueBtn.value);
-  });
-  
-  modalWatchedBtn.addEventListener('click', e => {
-    e.preventDefault();
-    setWatched(modalWatchedBtn.value);
-  });
+  }); 
   
   clearWatched.addEventListener('click', e => {
     localStorage.removeItem('Watched');
     deletechildrens(filmsRender);
     clearWatched.style.display = 'none';
+    location.reload();
   });
   
   clearQueue.addEventListener('click', e => {
     localStorage.removeItem('Queue');
     deletechildrens(filmsRender);
     clearQueue.style.display = 'none';
+    location.reload();
   }); 
   
   filmsRender.addEventListener('click', (e)=>{
-      e.preventDefault();
+      e.preventDefault();      
       modalContainer.style.display='block';
-      detailsMovieValues(e.target.dataset.id);      
+      detailsMovieValues(e.target.dataset.id);     
+      modalWatchedBtn.textContent = "ADD TO WATCHED";
+      modalQueueBtn.textContent = "ADD TO QUEUE";
+      if(searchId(e.target.dataset.id, 'Watched') == true){
+        modalWatchedBtn.textContent = "REMOVE FROM WATCHED";
+      }
+      if(searchId(e.target.dataset.id, 'Queue')){
+        modalQueueBtn.textContent = "REMOVE FROM QUEUE";
+      } 
   });
+
+  
+modalQueueBtn.addEventListener('click', e => {
+  e.preventDefault();
+  if(modalQueueBtn.textContent == "ADD TO QUEUE"){
+    setQueue(modalQueueBtn.value);
+    modalQueueBtn.textContent = 'REMOVE FROM QUEUE'
+  }else{
+    removeQueue(modalQueueBtn.value);
+    modalQueueBtn.textContent = 'ADD TO QUEUE'
+    console.log('remove');
+  }
+
+  location.reload();
+  
+});
+
+modalWatchedBtn.addEventListener('click', e => {
+  e.preventDefault();
+  if(modalWatchedBtn.textContent == "ADD TO WATCHED"){
+    setWatched(modalWatchedBtn.value);
+    modalWatchedBtn.textContent = 'REMOVE FROM WATCHED'
+  }else{
+    removeWatched(modalWatchedBtn.value);
+    modalWatchedBtn.textContent = 'ADD TO WATCHED'
+    console.log('remove');
+  } 
+  location.reload();
+});
 
   modalCloseBtn.addEventListener('click', (e)=>{
       e.preventDefault();

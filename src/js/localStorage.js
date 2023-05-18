@@ -38,7 +38,8 @@ export function setWatched(id){
 }
 
 export function setQueue(id){   
-    let ids = [];    
+    let ids = [];   
+    let encontrado = 0; 
     if((JSON.parse(localStorage.getItem('Queue')))  === null){
         localStorage.setItem('Queue', id.toString());
         console.log('Listo el Primero');
@@ -64,8 +65,7 @@ export function setQueue(id){
             }else{
                 ids.push(getId);
                 
-            }
-                 
+            }                 
             ids.push(id);
             localStorage.setItem('Queue', JSON.stringify(ids));
         } else{
@@ -116,6 +116,64 @@ export function deletechildrens(element){
     while(element.hasChildNodes()){
         element.removeChild(element.firstChild);	
    }
-  }
+}
+
+export function searchId(id, index){
+   let encontrado = false;
+   let result = JSON.parse(localStorage.getItem(index));
+   if(result != null){
+    if(result.length > 1){
+        encontrado = result.includes(id);
+    }else{
+        if (result == id) {
+            encontrado = true;
+        }
+    }
+   }
+   return encontrado;
+}
+
+export function removeQueue(id){
+    let ids = [];
+    let getId = JSON.parse(localStorage.getItem('Queue'));    
+    if(getId.length > 1){
+        console.log(id)
+        for (const is of getId) {
+            if(is != id){
+                ids.push(is);
+                
+            }
+        }
+        localStorage.setItem('Queue', JSON.stringify(ids));
+    }else{
+        if(getId == id){
+            localStorage.removeItem('Queue');
+            console.log(getId, id);
+        }else{
+            ids.push(getId);
+        }
+    }    
+}
+
+export function removeWatched(id){
+    let ids = [];
+    let getId = JSON.parse(localStorage.getItem('Watched'));    
+    if(getId.length > 1){
+        console.log(id)
+        for (const is of getId) {
+            if(is != id){
+                ids.push(is);                
+            }
+        }
+        localStorage.setItem('Watched', JSON.stringify(ids));
+    }else{
+        if(getId == id){
+            localStorage.removeItem('Watched');
+            console.log(getId, id);
+        }else{
+            ids.push(getId);
+        }
+    }    
+}
 
 
