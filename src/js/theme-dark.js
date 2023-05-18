@@ -2,7 +2,8 @@ const btnThemeHeader = document.querySelector('#switch-label');
 const bodyTheme = document.querySelector('body');
 const checked = document.querySelector('.lyf')
 let theme = localStorage.getItem("ui-theme");
-window.addEventListener('load', saveTheme);
+
+window.addEventListener('DOMContentLoaded', saveTheme);
 btnThemeHeader.addEventListener('click', onTheme);
 function saveTheme () {
     if (theme === "dark") {

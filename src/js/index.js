@@ -1,6 +1,6 @@
 import { getAPI, getMovie } from './request-api';
 import { varDOM } from './var-selector-dom';
-import { renderPost, printCard, pageNow, total_pgs} from './renderPost';
+import { renderPost, printCard, pageNow, total_pgs } from './renderPost';
 import { detailsMovieValues } from './modal-movie-details';
 import { paginationButtons, renderPerPagination } from './pagination';
 import { scrollTop } from './scroll-top';
@@ -34,9 +34,9 @@ const {
   openModalFooter,
   closeModalFooter,
   modalFooter,
-  scrollTopBtn
+  scrollTopBtn,
 } = varDOM;
-  
+
 const page = 1;
 let movListGen;
 // Async funtion expecting all movie cards to be displayed
@@ -49,138 +49,154 @@ async function renderPostAsync(data, page, movListGen) {
 
 // Charge render movie trending
 async function renderMoviesInit(page) {
-
   const postTrending = await getAPI.trendMovies(page);
   const movieListGenres = await getAPI.genres();
   movListGen = movieListGenres.slice();
   await renderPostAsync(postTrending, page, movieListGenres);
   // Rendering pagination
   paginationButtons();
-    
-  document.getElementById("pg-contoler").addEventListener('click', async (event) => {
 
-    if (event.target && event.target.matches("#num-page-btn")) {
-      const page = event.target;
-      const postTrendingPage = await getAPI.trendMovies(page.textContent);
-      await renderPostAsync(postTrendingPage, page.textContent, movieListGenres);
- 
-      paginationButtons();
-      // Selection of element DOM
-      console.log(pageNow);
-      const detail_movie = document.querySelectorAll('.movie-card');
+  document
+    .getElementById('pg-contoler')
+    .addEventListener('click', async event => {
+      if (event.target && event.target.matches('#num-page-btn')) {
+        const page = event.target;
+        const postTrendingPage = await getAPI.trendMovies(page.textContent);
+        await renderPostAsync(
+          postTrendingPage,
+          page.textContent,
+          movieListGenres
+        );
 
-      //Event click open movie details by class .movie-card
-      detail_movie.forEach(movie => {
-        const id_movie = movie.querySelector('a');
-        movie.addEventListener('click', () => {
-          modalContainer.style.display = "block";
-          detailsMovieValues(id_movie.dataset.id);
-        });
-      })
-    } else if (event.target && event.target.matches("#pg-advance-btn")) {
- 
-      pageAdv = pageNow === total_pgs ? pageNow : pageNow + 1;
-      const postTrendingPageAdv = await getAPI.trendMovies(pageAdv);
-      await renderPostAsync(postTrendingPageAdv, pageAdv, movieListGenres);
-      paginationButtons();
-      console.log(pageNow);
-
-      const detail_movie = document.querySelectorAll('.movie-card');
-
-      //Event click open movie details by class .movie-card
-      detail_movie.forEach(movie => {
-        const id_movie = movie.querySelector('a');
-        movie.addEventListener('click', () => {
-          modalContainer.style.display = "block";
-          detailsMovieValues(id_movie.dataset.id);
-        });
-      });
-    } else if (event.target && event.target.matches("#pg-back-btn")) {
-  
-      pageBack = pageNow === 1 ? pageNow : pageNow - 1;
-      const postTrendingPageBack = await getAPI.trendMovies(pageBack);
-      await renderPostAsync(postTrendingPageBack, pageBack, movieListGenres);
-      paginationButtons();
-      console.log(pageNow);
-
-      const detail_movie = document.querySelectorAll('.movie-card');
-      //Event click open movie details by class .movie-card
-      detail_movie.forEach(movie => {
-        const id_movie = movie.querySelector('a');
-        movie.addEventListener('click', () => {
-          modalContainer.style.display = "block";
-          detailsMovieValues(id_movie.dataset.id);
-        });
-      });
-    }
-  })
-};
-
-  renderMoviesInit(page);
-
-  onSearchBtn.addEventListener('click', async () => {
-    if (movieName.value != '') {
-      const posts = await getAPI.movies(movieName.value.trim(), page);
-      console.log(posts.data.total_results);
-      if (posts.data.total_results >= 1) {
-        await renderPostAsync(posts, page, movListGen);
-        // Rendering pagination buttons
         paginationButtons();
-        // Rendering photocards per paginations numbers buttons
-        renderPerPagination();
-        // Element selector by class .movie-card
+        // Selection of element DOM
+        console.log(pageNow);
         const detail_movie = document.querySelectorAll('.movie-card');
-    
+
         //Event click open movie details by class .movie-card
         detail_movie.forEach(movie => {
           const id_movie = movie.querySelector('a');
           movie.addEventListener('click', () => {
-            modalContainer.style.display = "block";
+            modalContainer.style.display = 'block';
             detailsMovieValues(id_movie.dataset.id);
           });
         });
-            
-      } else {
-        error.innerHTML = "No se encontraron Resultados";
+      } else if (event.target && event.target.matches('#pg-advance-btn')) {
+        pageAdv = pageNow === total_pgs ? pageNow : pageNow + 1;
+        const postTrendingPageAdv = await getAPI.trendMovies(pageAdv);
+        await renderPostAsync(postTrendingPageAdv, pageAdv, movieListGenres);
+        paginationButtons();
+        console.log(pageNow);
+
+        const detail_movie = document.querySelectorAll('.movie-card');
+
+        //Event click open movie details by class .movie-card
+        detail_movie.forEach(movie => {
+          const id_movie = movie.querySelector('a');
+          movie.addEventListener('click', () => {
+            modalContainer.style.display = 'block';
+            detailsMovieValues(id_movie.dataset.id);
+          });
+        });
+      } else if (event.target && event.target.matches('#pg-back-btn')) {
+        pageBack = pageNow === 1 ? pageNow : pageNow - 1;
+        const postTrendingPageBack = await getAPI.trendMovies(pageBack);
+        await renderPostAsync(postTrendingPageBack, pageBack, movieListGenres);
+        paginationButtons();
+
+        console.log(pageNow);
+
+        const detail_movie = document.querySelectorAll('.movie-card');
+        //Event click open movie details by class .movie-card
+        detail_movie.forEach(movie => {
+          const id_movie = movie.querySelector('a');
+          movie.addEventListener('click', () => {
+            modalContainer.style.display = 'block';
+            detailsMovieValues(id_movie.dataset.id);
+          });
+        });
       }
-       
-     
+    });
+
+  const detail_movie = document.querySelectorAll('.movie-card');
+  //Event click open movie details by class .movie-card
+  detail_movie.forEach(movie => {
+    const id_movie = movie.querySelector('a');
+    movie.addEventListener('click', () => {
+      modalContainer.style.display = 'block';
+      detailsMovieValues(id_movie.dataset.id);
+    });
+  });
+}
+
+renderMoviesInit(page);
+
+onSearchBtn.addEventListener('click', async () => {
+  if (movieName.value != '') {
+    const posts = await getAPI.movies(movieName.value.trim(), page);
+    console.log(posts.data.total_results);
+    if (posts.data.total_results >= 1) {
+      await renderPostAsync(posts, page, movListGen);
+      // Rendering pagination buttons
+      paginationButtons();
+      // Rendering photocards per paginations numbers buttons
+      renderPerPagination();
+      // Element selector by class .movie-card
+      const detail_movie = document.querySelectorAll('.movie-card');
+
+      //Event click open movie details by class .movie-card
+      detail_movie.forEach(movie => {
+        const id_movie = movie.querySelector('a');
+        movie.addEventListener('click', () => {
+          modalContainer.style.display = 'block';
+          detailsMovieValues(id_movie.dataset.id);
+        });
+      });
     } else {
-      return window.alert('Please write something!');
+      error.innerHTML = 'No se encontraron Resultados';
     }
-  });
+  } else {
+    return window.alert('Please write something!');
+  }
+});
 
-  movieName.addEventListener('keydown', (event) => {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      onSearchBtn.click();
-    }
-  });
+movieName.addEventListener('keydown', event => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    onSearchBtn.click();
+  }
+});
 
-  //Acceder al LocalStorage Deimer Gutierrez....
+//Acceder al LocalStorage Deimer Gutierrez....
 
-  modalQueueBtn.addEventListener('click', e => {
-    e.preventDefault();
-    setQueue(modalQueueBtn.value);
-  });
+modalQueueBtn.addEventListener('click', e => {
+  e.preventDefault();
+  setQueue(modalQueueBtn.value);
+});
 
-  modalWatchedBtn.addEventListener('click', e => {
-    e.preventDefault();
-    setWatched(modalWatchedBtn.value);
-  });
+modalWatchedBtn.addEventListener('click', e => {
+  e.preventDefault();
+  setWatched(modalWatchedBtn.value);
+});
 
-  // MEMBERS MODAL/FOOTER MODAL
+// MEMBERS MODAL/FOOTER MODAL
 
-  openModalFooter.addEventListener('click', () => {
-    modalFooter.style.display = 'block';
-  });
-  closeModalFooter.addEventListener('click', () => {
-    modalFooter.style.display = 'none';
-  });
+openModalFooter.addEventListener('click', () => {
+  modalFooter.style.display = 'block';
+});
+closeModalFooter.addEventListener('click', () => {
+  modalFooter.style.display = 'none';
+});
 
-  // Scroll button to top
-  window.addEventListener('scroll', scrollTop);
+// Scroll button to top
+window.addEventListener('scroll', scrollTop);
 
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+//Close modal btn
+
+modalCloseBtn.addEventListener('click', () => {
+  modalContainer.style.display = 'none';
+});
