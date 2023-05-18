@@ -34,9 +34,9 @@ const {
   openModalFooter,
   closeModalFooter,
   modalFooter,
-  scrollTopBtn
+  scrollTopBtn,
 } = varDOM;
-  
+
 const page = 1;
 let movListGen;
 // Async funtion expecting all movie cards to be displayed
@@ -103,8 +103,10 @@ async function renderMoviesInit(page) {
         const postTrendingPageBack = await getAPI.trendMovies(pageBack);
         await renderPostAsync(postTrendingPageBack, pageBack, movieListGenres);
         paginationButtons();
-        const detail_movie = document.querySelectorAll('.movie-card');
 
+        console.log(pageNow);
+
+        const detail_movie = document.querySelectorAll('.movie-card');
         //Event click open movie details by class .movie-card
         detail_movie.forEach(movie => {
           const id_movie = movie.querySelector('a');
@@ -116,7 +118,6 @@ async function renderMoviesInit(page) {
       }
     });
 
-  // Element selector by class .movie-card
   const detail_movie = document.querySelectorAll('.movie-card');
   //Event click open movie details by class .movie-card
   detail_movie.forEach(movie => {
@@ -126,77 +127,76 @@ async function renderMoviesInit(page) {
       detailsMovieValues(id_movie.dataset.id);
     });
   });
-  // Event click close button modal window
-  modalCloseBtn.addEventListener('click', () => {
-    modalContainer.style.display = 'none';
-  });
 }
 
-  renderMoviesInit(page);
+renderMoviesInit(page);
 
-  onSearchBtn.addEventListener('click', async () => {
-    if (movieName.value != '') {
-      const posts = await getAPI.movies(movieName.value.trim(), page);
-      console.log(posts.data.total_results);
-      if (posts.data.total_results >= 1) {
-        await renderPostAsync(posts, page, movListGen);
-        // Rendering pagination buttons
-        paginationButtons();
-        // Rendering photocards per paginations numbers buttons
-        renderPerPagination();
-        // Element selector by class .movie-card
-        const detail_movie = document.querySelectorAll('.movie-card');
-    
-        //Event click open movie details by class .movie-card
-        detail_movie.forEach(movie => {
-          const id_movie = movie.querySelector('a');
-          movie.addEventListener('click', () => {
-            modalContainer.style.display = "block";
-            detailsMovieValues(id_movie.dataset.id);
-          });
+onSearchBtn.addEventListener('click', async () => {
+  if (movieName.value != '') {
+    const posts = await getAPI.movies(movieName.value.trim(), page);
+    console.log(posts.data.total_results);
+    if (posts.data.total_results >= 1) {
+      await renderPostAsync(posts, page, movListGen);
+      // Rendering pagination buttons
+      paginationButtons();
+      // Rendering photocards per paginations numbers buttons
+      renderPerPagination();
+      // Element selector by class .movie-card
+      const detail_movie = document.querySelectorAll('.movie-card');
+
+      //Event click open movie details by class .movie-card
+      detail_movie.forEach(movie => {
+        const id_movie = movie.querySelector('a');
+        movie.addEventListener('click', () => {
+          modalContainer.style.display = 'block';
+          detailsMovieValues(id_movie.dataset.id);
         });
-            
-      } else {
-        error.innerHTML = "No se encontraron Resultados";
-      }
-       
-     
+      });
     } else {
-      return window.alert('Please write something!');
+      error.innerHTML = 'No se encontraron Resultados';
     }
-  });
+  } else {
+    return window.alert('Please write something!');
+  }
+});
 
-  movieName.addEventListener('keydown', (event) => {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      onSearchBtn.click();
-    }
-  });
+movieName.addEventListener('keydown', event => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    onSearchBtn.click();
+  }
+});
 
-  //Acceder al LocalStorage Deimer Gutierrez....
+//Acceder al LocalStorage Deimer Gutierrez....
 
-  modalQueueBtn.addEventListener('click', e => {
-    e.preventDefault();
-    setQueue(modalQueueBtn.value);
-  });
+modalQueueBtn.addEventListener('click', e => {
+  e.preventDefault();
+  setQueue(modalQueueBtn.value);
+});
 
-  modalWatchedBtn.addEventListener('click', e => {
-    e.preventDefault();
-    setWatched(modalWatchedBtn.value);
-  });
+modalWatchedBtn.addEventListener('click', e => {
+  e.preventDefault();
+  setWatched(modalWatchedBtn.value);
+});
 
-  // MEMBERS MODAL/FOOTER MODAL
+// MEMBERS MODAL/FOOTER MODAL
 
-  openModalFooter.addEventListener('click', () => {
-    modalFooter.style.display = 'block';
-  });
-  closeModalFooter.addEventListener('click', () => {
-    modalFooter.style.display = 'none';
-  });
+openModalFooter.addEventListener('click', () => {
+  modalFooter.style.display = 'block';
+});
+closeModalFooter.addEventListener('click', () => {
+  modalFooter.style.display = 'none';
+});
 
-  // Scroll button to top
-  window.addEventListener('scroll', scrollTop);
+// Scroll button to top
+window.addEventListener('scroll', scrollTop);
 
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+//Close modal btn
+
+modalCloseBtn.addEventListener('click', () => {
+  modalContainer.style.display = 'none';
+});
