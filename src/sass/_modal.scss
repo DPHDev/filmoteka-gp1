@@ -83,6 +83,7 @@
             &:hover {
                 background: #FF6B01;
                 color: white;
+                transition: 0.3s;
 
             }
         }
@@ -114,7 +115,14 @@
 
 body.body-theme {
     .modal-content {
-        background: rgb(254, 254, 254);
-        background: radial-gradient(circle, rgba(254, 254, 254, 1) 55%, rgba(121, 119, 119, 1) 82%);
+        background: #333;
+        
+    }
+    .modal-block{
+        color: white;
+    }
+    .film-info {
+        color: white;
+
     }
 }

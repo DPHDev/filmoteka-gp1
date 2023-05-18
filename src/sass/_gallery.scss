@@ -16,6 +16,7 @@
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
     width: 350;
     height: auto;
+
 }
 
 .movie-card:hover {
@@ -51,7 +52,22 @@
     font-weight: bold;
     color: #FF6B08;
 }
-    
 
+////////// Dark theme //////////
+body.body-theme {
+    .info-items {
+        color: #FF6B08;
+    }
+    .movie-card {
+        background-color: #333;
+    }
+    .card-movie-title {
+        color: white;
+    }
+    .movie-card:hover {
+        box-shadow: 0 0 15px orangered;
+    
+    }
+}
 
 
