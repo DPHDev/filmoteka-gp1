@@ -149,7 +149,6 @@ body.body-theme {
         font-size: 12px;
         font-weight: 40;
 
-
         &-content {
             display: flex;
             align-items: flex-start;
@@ -176,6 +175,11 @@ body.body-theme {
                 text-transform: uppercase;
                 text-align: left;
             }
+
+            &:hover {
+                background: #FF6B01;
+                color: white;
+                transition: 0.3s;
 
             &-poster {
                 margin: 40px 0px 20px;
@@ -392,5 +396,19 @@ body.body-theme {
                 cursor: pointer;
             }
         }
+}
+
+body.body-theme {
+    .modal-content {
+        background: #333;
+        
+    }
+    .modal-block{
+        color: white;
+    }
+    .film-info {
+        color: white;
+
+    }
 }
 

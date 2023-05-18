@@ -28,7 +28,7 @@ export async function renderPost(posts, page, listGenres) {
                     <img class='gallery__image' src="${poster}" alt="${title}" loading="lazy" />
                 </a>
                 <figcaption class="info">
-                    <h3 class="card-movie-title">${title}</h3>
+                    <h3 class="card-movie-title">${title.toUpperCase()}</h3>
                     <div class="info-items">
                         <p class="info-item">
                             ${genresDel}
