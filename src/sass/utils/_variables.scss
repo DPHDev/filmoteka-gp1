@@ -1,0 +1,18 @@
+$colors: (
+  accent: rgb(255, 108, 10),
+  modal-text: rgb(140, 140, 140),
+  warning-text: rgb(255, 0, 27),
+  background-footer: rgb(247, 247, 247),
+  footer-text: rgb(84, 84, 84),
+  white: rgb(255, 255, 255),
+  black: rgb(0, 0, 0),
+  header-gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+);
+
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Raleway', sans-serif;
+$borders: 4px;
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}

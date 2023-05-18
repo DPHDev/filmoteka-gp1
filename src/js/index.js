@@ -11,6 +11,9 @@ import {
   getWatched,
   getGenre,
   deletechildrens,
+  searchId,
+  removeQueue,
+  removeWatched
 } from './localStorage';
 import { theme } from './theme-dark';
 
@@ -120,11 +123,21 @@ async function renderMoviesInit(page) {
 
   const detail_movie = document.querySelectorAll('.movie-card');
   //Event click open movie details by class .movie-card
+  
   detail_movie.forEach(movie => {
     const id_movie = movie.querySelector('a');
     movie.addEventListener('click', () => {
       modalContainer.style.display = 'block';
       detailsMovieValues(id_movie.dataset.id);
+      modalWatchedBtn.textContent = "ADD TO WATCHED";
+      modalQueueBtn.textContent = "ADD TO QUEUE";
+      if(searchId(id_movie.dataset.id, 'Watched') == true){
+        modalWatchedBtn.textContent = "REMOVE FROM WHATCHED";  
+        console.log(searchId(id_movie.dataset.id, 'Watched'))      
+      }
+      if(searchId(id_movie.dataset.id, 'Queue') == true){
+        modalQueueBtn.textContent = "REMOVE FROM QUEUE";
+      }
     });
   });
 }
@@ -171,13 +184,30 @@ movieName.addEventListener('keydown', event => {
 
 modalQueueBtn.addEventListener('click', e => {
   e.preventDefault();
-  setQueue(modalQueueBtn.value);
+  if(modalQueueBtn.textContent == "ADD TO QUEUE"){
+    setQueue(modalQueueBtn.value);
+    modalQueueBtn.textContent = 'REMOVE FROM QUEUE'
+  }else{
+    removeQueue(modalQueueBtn.value);
+    modalQueueBtn.textContent = 'ADD TO QUEUE'
+    console.log('remove');
+  }
+  
 });
 
 modalWatchedBtn.addEventListener('click', e => {
   e.preventDefault();
-  setWatched(modalWatchedBtn.value);
+  if(modalWatchedBtn.textContent == "ADD TO WATCHED"){
+    setWatched(modalWatchedBtn.value);
+    modalWatchedBtn.textContent = 'REMOVE FROM WATCHED'
+  }else{
+    removeWatched(modalWatchedBtn.value);
+    modalWatchedBtn.textContent = 'ADD TO WATCHED'
+    console.log('remove');
+  } 
 });
+
+
 
 // MEMBERS MODAL/FOOTER MODAL
 
