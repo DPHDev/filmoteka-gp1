@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 export const getAPI = {
     KEY_API: '1c40c07b431bd44c3eec1b5bff019241',
     movies: function (name, page) {
@@ -22,6 +20,7 @@ export const getAPI = {
                 };
             });
     },
+
     genres: function () {
     return axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.KEY_API}&language=en-US`)
         .then((response) => {
@@ -81,9 +80,9 @@ export const getAPI = {
 
 // Extarer una pelicula de la api Deimer Gutierrez....
 
-
-export async function getMovie(query){
-    let url = `https://api.themoviedb.org/3/movie/${query}?api_key=${apikey}`;
+export async function getMovie(query) {
+    const KEY_API = '1c40c07b431bd44c3eec1b5bff019241';
+    let url = `https://api.themoviedb.org/3/movie/${query}?api_key=${KEY_API}`;
     const response = await fetch(url);
     const data =  await response.json();
     return data;

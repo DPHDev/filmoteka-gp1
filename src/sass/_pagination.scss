@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
     .btn-back-page, .btn-adv-page {
         border-radius: 5px;
         background: #f7f7f7;
@@ -10,15 +12,18 @@
         height: 40px;
         border: none;
         &:hover{
+            cursor: pointer;
             background: #ff6b01;
             color: white;
         }
     }
     .pages-list{
+        gap: 2px;
         display: flex;
         justify-content: center;
         align-items: center;
         button {
+            cursor: pointer;
             border-radius: 5px;
             background: white;
             width: 40px;
@@ -30,5 +35,9 @@
             background: #ff6b01;
             color: white;
         }
+    }
+    .pag-active {
+        background: #ff6b01;
+        color: white;
     }
 }

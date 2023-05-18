@@ -57,10 +57,12 @@
 .back-to-top {
     display: none;
     position: fixed;
-    right: 15px;
-    top: 50%;
+    right: 5%;
+    bottom: 120px;
     cursor: pointer;
     svg {
+        width: 8vh;
+        height: 8vh;
         opacity: .7;
         fill: #ff6b01;
     }

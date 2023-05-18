@@ -65,6 +65,7 @@ clearQueue = document.getElementById('clearQueue');
             console.log(error);
           });
       } else {
+        
         for (const id of ids) {
           getMovie(id)
             .then(data => {

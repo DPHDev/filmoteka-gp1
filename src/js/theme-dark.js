@@ -7,8 +7,7 @@ btnThemeHeader.addEventListener('click', onTheme);
 function saveTheme () {
     if (theme === "dark") {
         bodyTheme.classList.add('body-theme');
-        checked.setAttribute('checked', false);
-        
+        checked.setAttribute('checked', false);   
     };
 };
 function onTheme() {
