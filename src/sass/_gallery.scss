@@ -54,6 +54,24 @@
     font-weight: bold;
     color: #FF6B08;
 }
+
+////////// Dark theme //////////
+body.body-theme {
+    .info-items {
+        color: #FF6B08;
+    }
+    .movie-card {
+        background-color: #333;
+    }
+    .card-movie-title {
+        color: white;
+    }
+    .movie-card:hover {
+        box-shadow: 0 0 15px orangered;
+    
+    }
+}
+
 .back-to-top {
     display: none;
     position: fixed;

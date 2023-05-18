@@ -13,28 +13,21 @@
     <link rel="stylesheet" href="./sass/index.scss" />
     <title>Filmoteka</title>
   </head>
-
-  <body>
-    <include src="./partials/modal.html"></include>
-    <include src="./partials/footerModal.html"></include>
-    <header>
+<body>
+  <include src="./partials/modal.html"></include>
+  <include src="./partials/footerModal.html"></include>
+  <header>
+    <section class="header-container container">
       <include src="./partials/switch.html"></include>
-      <div class="header-container container">
-        <div class="container-divisions">
-          <div class="division-left">
-            <div class="logo-icon">
-              <svg
-                class="film-icon"
-                width="24"
-                height="24"
-                href="/src/index.html"
-              >
-                <use href="./assets/images/icons.svg#icon-film"></use>
-              </svg>
-            </div>
-            <div class="page-name">
-              <h1 href="./index.html">Filmoteka</h1>
-            </div>
+      <div class="container-divisions">
+        <div class="division-left">
+          <div class="logo-icon">
+            <svg class="film-icon" width="24" height="24" href="/src/index.html">
+              <use href="./assets/images/icons.svg#icon-film"></use>
+            </svg>
+          </div>
+          <div class="page-name">
+            <h1 href="/src/index.html" >Filmoteka</h1>
           </div>
           <nav class="division-right">
             <ul class="menu-home">
@@ -71,7 +64,7 @@
             <spam class="error"></spam>
           </div>
         </div>
-      </div>
+        </section>
     </header>
     <section class="films">
       <div class="films__container">
