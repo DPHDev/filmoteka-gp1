@@ -2,23 +2,37 @@ import { getGenres } from "./request-api";
 
 export function setWatched(id){
     let ids = [];    
+    let encontrado = 0;
     if(JSON.parse(localStorage.getItem('Watched'))  === null){
-        localStorage.setItem('Watched', id.toString());
-        console.log('Listo el Primero');
+        localStorage.setItem('Watched', id.toString());        
     }else{
-        let getId =JSON.parse(localStorage.getItem('Watched'));        
-        if(getId.length > 1){            
-            for (const id of getId) {
-                ids.push(id);
-            }
-            console.log(getId.length);
+        let getId =JSON.parse(localStorage.getItem('Watched'));  
+        console.log(getId.length);
+        if(getId.length > 1){
+            for (const bus of getId) {
+                if(id == bus){
+                    encontrado = 1;
+                }
+            }                       
         }else{
-            ids.push(getId);
-            console.log(getId.length);
+            if(id == getId){
+                encontrado = 1                
+            } 
         }
-             
-        ids.push(id);
-        localStorage.setItem('Watched', JSON.stringify(ids));
+        if(encontrado == 0){            
+            if(getId.length > 1){            
+                for (const id of getId) {                   
+                    ids.push(id);
+                }               
+            }else{
+                ids.push(getId);                
+            }                 
+            ids.push(id);
+            localStorage.setItem('Watched', JSON.stringify(ids));
+        }else{
+            alert("La pelicula se encuentra añadida");
+        }
+       
     }
     
 }
@@ -29,19 +43,35 @@ export function setQueue(id){
         localStorage.setItem('Queue', id.toString());
         console.log('Listo el Primero');
     }else{
-        let getId =JSON.parse(localStorage.getItem('Queue'));        
-        if(getId.length > 1){            
-            for (const id of getId) {
-                ids.push(id);
-            }
-            console.log(getId.length);
+        let getId =JSON.parse(localStorage.getItem('Queue')); 
+        if(getId.length > 1){
+            for (const bus of getId) {
+                if(id == bus){
+                    encontrado = 1;
+                }
+            }                       
         }else{
-            ids.push(getId);
-            console.log(getId.length);
-        }
-             
-        ids.push(id);
-        localStorage.setItem('Queue', JSON.stringify(ids));
+            if(id == getId){
+                encontrado = 1
+            } 
+        } 
+        if(encontrado == 0){ 
+            if(getId.length > 1){            
+                for (const id of getId) {
+                    ids.push(id);
+                }
+                console.log(getId.length);
+            }else{
+                ids.push(getId);
+                
+            }
+                 
+            ids.push(id);
+            localStorage.setItem('Queue', JSON.stringify(ids));
+        } else{
+            alert("La pelicula se encuentra añadida");
+        }     
+        
     }
 }
 

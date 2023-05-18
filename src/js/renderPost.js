@@ -30,7 +30,7 @@ export async function renderPost(posts, page, listGenres) {
             return `
             <figure class="movie-card" id="movie-detail">
                 <a class="poster-large" data-id="${id}" href="#">
-                    <img class='gallery__image' src="${poster}" alt="${title}" loading="lazy" />
+                    <img id="image" class='gallery__image' src="${poster}" alt="${title}" loading="lazy" />
                 </a>
                 <figcaption class="info">
                     <h3 class="card-movie-title">${title}</h3>
@@ -68,7 +68,7 @@ export function printCard(results){
     insertCard =`
                     <figure class="movie-card" id="movie-detail">
                         <a class="poster-large" data-id="" href="#">
-                            <img class='gallery__image' src="${baseImageUrl}w300${results.poster_path}" alt="${results.tittle}" loading="lazy" />
+                            <img class='gallery__image' src="${baseImageUrl}w300${results.poster_path}" alt="${results.tittle}" loading="lazy"  data-id="${results.id}"/>
                         </a>
                         <figcaption class="info">
                             <h3 class="card-movie-title">${results.original_title}</h3>
