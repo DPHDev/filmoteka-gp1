@@ -5,9 +5,7 @@ import {
     getWatched,
     getGenre,
     deletechildrens,  
-    searchId,
-    removeQueue,
-    removeWatched  
+    searchId 
 } from './localStorage';
 
 import { getMovie } from "../js/request-api";
