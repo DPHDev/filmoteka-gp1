@@ -285,10 +285,12 @@ body.body-theme {
     
     
             &-content {
+                justify-self: center;
+                align-self: center;
                 display: flex;
                 align-items: flex-start;
                 background-color: #fefefe;
-                margin: 15% auto;
+                margin: 0 auto;
                 padding: 20px;
                 border: 1px solid #888;
                 width: 80%;
@@ -298,7 +300,7 @@ body.body-theme {
             }
     
             &-block {
-                margin-top: 25px;
+                margin-top: 15px;
                 margin-left: 10px;
     
                 color: black;
