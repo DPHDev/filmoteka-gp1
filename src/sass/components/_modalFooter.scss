@@ -12,7 +12,7 @@ body.body-theme {
 
 .backdrop {
     position: fixed;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -38,7 +38,6 @@ h1 {
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 40px;
-    color: #080808;
     -webkit-transition: all 0.4s ease 0s;
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
@@ -64,7 +63,7 @@ h1 em {
     text-align: center;
     margin: auto;
     white-space: nowrap;
-    padding-bottom: 13px;
+    // padding-bottom: 13px;
 }
 
 .modalTitle h1:before {
@@ -73,7 +72,6 @@ h1 em {
     display: block;
     height: 3px;
     width: 75px;
-    margin-bottom: 5px;
 }
 
 .modalTitle h1:after {
@@ -85,7 +83,7 @@ h1 em {
     bottom: 0;
     height: 3px;
     width: 75px;
-    margin-bottom: 0.25em;
+    // margin-bottom: 0.25em;
 }
 
 
@@ -112,6 +110,15 @@ h1 em {
     padding-top: 20px;
 }
 
+.member {
+    margin-bottom: 15px;
+    &_desc {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 .leads {
     display: flex;
     list-style: none;
@@ -127,7 +134,7 @@ h1 em {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: calc(10%);
+    gap: calc(15%);
 
     &_item {
         display: flex;
@@ -141,7 +148,7 @@ h1 em {
 .photo {
     width: 120px;
     height: 120px;
-    border-radius: 15px;
+    border-radius: 10px;
     object-fit: cover;
 }
 

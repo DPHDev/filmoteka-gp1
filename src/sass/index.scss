@@ -1,14 +1,14 @@
-@import 'components/common';
-@import 'components/header';
-@import 'components/gallery';
-@import 'components/modal';
-@import 'components/modalFooter';
-@import 'components/footer';
-@import 'components/theme-dark';
 @import 'utils/mixins';
 @import 'utils/variables';
 @import './pagination';
 @import './library';
+@import 'components/common';
+@import 'components/gallery';
+@import 'components/footer';
+@import 'components/theme-dark';
+@import 'components/modalFooter';
+@import 'components/modal';
+@import 'components/header';
 
 .orange{
     background: #FF6B01;
