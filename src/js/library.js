@@ -24,17 +24,17 @@ const {
 import { detailsMovieValues } from './modal-movie-details';
 import { theme } from './theme-dark';
 
-filmsRender = document.getElementById('films');
-buttonWatchet = document.getElementById('buttonWatchet');
-buttonQueue = document.getElementById('buttonQueue');
-clearWatched = document.getElementById('clearWatched');
-clearQueue = document.getElementById('clearQueue');
-image = document.getElementById('image');
-removeWatche = document.getElementById('removeWatche');
-removeQueue = document.getElementById('removeQweue');
-addWatched = document.getElementById('watch-button');
-addQueue = document.getElementById('queue-button');
-scrollTopBtn = document.querySelector('.back-to-top');
+const filmsRender = document.getElementById('films');
+const buttonWatchet = document.getElementById('buttonWatchet');
+const buttonQueue = document.getElementById('buttonQueue');
+const clearWatched = document.getElementById('clearWatched');
+const clearQueue = document.getElementById('clearQueue');
+const image = document.getElementById('image');
+const removeWatche = document.getElementById('removeWatche');
+const removeQueue = document.getElementById('removeQweue');
+const addWatched = document.getElementById('watch-button');
+const addQueue = document.getElementById('queue-button');
+const scrollTopBtn = document.querySelector('.back-to-top');
 
 let ids = getWatched();
 //   buttons.style.display = 'block';
@@ -200,11 +200,11 @@ scrollTopBtn.addEventListener('click', () => {
 });
 
 
-// Footer modal
+// // Footer modal
 
-openModalFooter.addEventListener('click', () => {
-  modalFooter.style.display = 'block';
-});
-closeModalFooter.addEventListener('click', () => {
-  modalFooter.style.display = 'none';
-});
+// openModalFooter.addEventListener('click', () => {
+//   modalFooter.style.display = 'block';
+// });
+// closeModalFooter.addEventListener('click', () => {
+//   modalFooter.style.display = 'none';
+// });
