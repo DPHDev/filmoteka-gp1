@@ -1,14 +1,14 @@
 @import 'utils/mixins';
 @import 'utils/variables';
 @import './pagination';
-@import './library';
 @import 'components/common';
 @import 'components/gallery';
 @import 'components/footer';
-@import 'components/theme-dark';
+@import './library';
 @import 'components/modalFooter';
 @import 'components/modal';
 @import 'components/header';
+@import 'components/theme-dark';
 
 .orange{
     background: #FF6B01;

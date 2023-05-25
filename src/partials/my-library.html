@@ -15,6 +15,7 @@
   </head>
   <body>
     <include src="./partials/modal.html"></include>
+    <!-- <include src="./partials/footerModal.html"></include> -->
     <header>
       <section class="header-container">
         <include src="./partials/switch.html"></include>
@@ -49,28 +50,41 @@
         </div>
         <div class="division-center">
           <div class="buttons">
-            <button id="buttonWatchet" class="button__watchet buttons__btn">WATCHET</button>
-            <button id="buttonQueue" class="button__queue buttons__btn">QUEUE</button>
+            <button id="buttonWatchet" class="button__watchet buttons__btn">
+              WATCHET
+            </button>
+            <button id="buttonQueue" class="button__queue buttons__btn">
+              QUEUE
+            </button>
           </div>
-        <div class="clear">
-          <button id="clearWatched" class="clearWatched buttons__btn">CLEAR WATCHET LIST</button>
-          <button id="clearQueue" class="clearQueue buttons__btn">CLEAR QUEUE LIST</button>
-        </div>
+          <div class="clear">
+            <button id="clearWatched" class="clearWatched buttons__btn">
+              CLEAR WATCHET LIST
+            </button>
+            <button id="clearQueue" class="clearQueue buttons__btn">
+              CLEAR QUEUE LIST
+            </button>
+          </div>
         </div>
       </section>
     </header>
     <main>
-    <section>
-      <div class="container">
-        <h2 hidden>Popular films</h2>
-        <div id="films" class="films"></div>
+      <section>
+        <div class="container">
+          <h2 hidden>Popular films</h2>
+          <div id="films" class="films"></div>
+        </div>
+      </section>
+      <div id="back-to-top" class="back-to-top">
+        <svg
+          class="back-to-top__icon"
+          viewBox="0 0 512 512"
+          width="50"
+          height="50"
+        >
+          <use href="../assets/images/icons.svg#toTop"></use>
+        </svg>
       </div>
-    </section>
-    <div id="back-to-top" class="back-to-top">
-      <svg class="back-to-top__icon" viewBox="0 0 512 512" width="50" height="50">
-        <use href="../assets/images/icons.svg#toTop"></use>
-      </svg>
-    </div>
     </main>
     <footer>
       <section class="footer">
@@ -90,24 +104,138 @@
         </svg>
         <p class="footer__text">
           by
-          <span id="footer-modal__open" class="footer__span" data-modal-open
-            >GoIT Students | team: "Dev Vinci Code"</span
+          <a class="footer__span" id="data-modal-open"
+            >GoIT Students | team: "Dev Vinci Code"</a
           >
         </p>
       </section>
-      <!-- Footer Modal -->
-      <!-- Here you will see the code for the modal but it's not finished yet -->
     </footer>
-    <div class="backdrop is-hidden" id="data-modal">
-    <div class="modal-footer">
-      <button id="data-modal-close" class="modal_close">
-        <svg class="icon-close-modal">
-          <use href="../assets/images/icons.svg#close"></use>
-        </svg>
-      </button>
+    <div class="backdrop" id="data-modal">
+      <div class="modal-footer">
+        <span class="close" id="data-modal-close">&times;</span>
+        <div class="modalTitle">
+          <h1>Our Team</h1>
+        </div>
+        <div class="container-member">
+          <ul class="leads">
+            <li class="leads_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/carlos.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Scrum Master</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Carlos</h3>
+                </div>
+              </article>
+            </li>
+            <li class="leads_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/daniel.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Team Lead</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Daniel</h3>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <ul class="devs">
+            <li class="devs_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/deimer.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Backend Dev</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Deimer</h3>
+                </div>
+              </article>
+            </li>
+            <li class="devs_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/dairo.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Backend Dev</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Dairo</h3>
+                </div>
+              </article>
+            </li>
+            <li class="devs_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/sergio.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Backend Dev</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Sergio</h3>
+                </div>
+              </article>
+            </li>
+            <li class="devs_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/marce.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Frontend Dev</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Marcela</h3>
+                </div>
+              </article>
+            </li>
+            <li class="devs_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/antony.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Frontend Dev</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Antony</h3>
+                </div>
+              </article>
+            </li>
+            <li class="devs_item">
+              <article class="member">
+                <div class="member_overlay">
+                  <img src="../assets/images/bryan.jpeg" class="photo" alt="" />
+                  <div class="overlay">
+                    <span class="member_kind">Frontend Dev</span>
+                    <div class="member_social"></div>
+                  </div>
+                </div>
+                <div class="member_desc">
+                  <h3 class="member_name">Brayan</h3>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  </footer>
     <script type="module" src="../js/library.js"></script>
   </body>
 </html>
