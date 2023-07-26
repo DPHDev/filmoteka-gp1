@@ -7,7 +7,7 @@ export let scrollTop = () => {
   let scrollPosition = window.pageYOffset;
 
   // Get height total of page
-  let pageHeight = document.documentElement.scrollHeight / 2 ;
+  let pageHeight = document.documentElement.scrollHeight / 4 ;
 
   // Svg on
   if (scrollPosition > pageHeight) {
